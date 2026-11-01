@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ΠΕΠΑΛ Ακρωτηρίου — Πληροφορική & Τεχνολογία</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Α' Λυκείου — Πληροφορική ΠΕΠΑΛ</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,106 +11,153 @@
             --bg-card: #151c2e;
             --bg-card-hover: #1e293b;
             --primary-blue: #3b82f6;
-            --deep-purple: #7c3aed;
             --accent-purple: #a855f7;
-            --glow-color: rgba(124, 58, 237, 0.35);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --border: rgba(255, 255, 255, 0.08);
-            --gradient-hero: linear-gradient(135deg, #0d1322 0%, #1e1b4b 50%, #2e1065 100%);
             --gradient-accent: linear-gradient(135deg, #2563eb, #7c3aed);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+        
+        header { background: #0f172a; padding: 2rem 1.5rem; border-bottom: 1px solid var(--border); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { color: var(--accent-purple); text-decoration: none; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+        .back-link:hover { text-decoration: underline; }
+
+        .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; flex: 1; width: 100%; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(to right, #ffffff, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p.subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s; }
+        .card:hover { transform: translateY(-4px); border-color: var(--accent-purple); }
+        
+        .badge { display: inline-block; background: rgba(168, 85, 247, 0.15); color: #d8b4fe; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 20px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        .card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: #ffffff; }
+        .card-text { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+        .card-actions { display: flex; gap: 0.5rem; }
+        .btn { flex: 1; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 700; text-align: center; border-radius: 10px; cursor: pointer; text-decoration: none; border: none; }
+        .btn-primary { background: var(--gradient-accent); color: white; }
+        .btn-outline { background: transparent; color: var(--text-main); border: 1px solid var(--border); }
+        .btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
+
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: var(--bg-card); width: 92%; max-width: 1100px; height: 85vh; border-radius: 20px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; }
+        .modal-header { padding: 1rem 1.5rem; background: #0f172a; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .close-btn { background: none; border: none; color: var(--text-muted); font-size: 1.8rem; cursor: pointer; }
+        .modal-body { flex: 1; }
+        .modal-body iframe { width: 100%; height: 100%; border: none; }
+
+        footer { background: #070a12; padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">&larr; Αρχική Σελίδα</a>
+            <span style="color: var(--text-muted); font-weight: 600;">ΠΕΠΑΛ Ακρωτηρίου</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Α' Λυκείου — Παρουσιάσεις & Υλικό</h1>
+        <p class="subtitle">Επιλέξτε την ενότητα που θέλετε να μελετήσετε ή να προβάλετε στην τάξη.</p>
+
+        <div class="grid">
+            <!-- 1. HTML Βασικές Έννοιες -->
+            <div class="card">
+                <div>
+                    <span class="badge">Web Design</span>
+                    <h3 class="card-title">1. Εισαγωγή στην HTML</h3>
+                    <p class="card-text">Βασικές έννοιες, ετικέτες μορφοποίησης (έντονα, πλάγια, υπογράμμιση, χρώματα, στοίχιση) και σύνταξη κώδικα.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('html_basics_pepal.html', '1. Εισαγωγή στην HTML')">Προβολή</button>
+                    <a href="html_basics_pepal.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- 2. Δομή Φακέλων -->
+            <div class="card">
+                <div>
+                    <span class="badge">Λειτουργικά</span>
+                    <h3 class="card-title">2. Δομή Φακέλων Windows</h3>
+                    <p class="card-text">Οργάνωση αρχείων, διαδρομές (paths) και οδηγίες για την εργαστηριακή άσκηση δημιουργίας φακέλων.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('windows_folders_pepal.html', '2. Δομή Φακέλων Windows')">Προβολή</button>
+                    <a href="windows_folders_pepal.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- 3. Βαθμολόγηση -->
+            <div class="card">
+                <div>
+                    <span class="badge">Γενικά</span>
+                    <h3 class="card-title">3. Σύστημα Βαθμολόγησης</h3>
+                    <p class="card-text">Ανάλυση κριτηρίων αξιολόγησης: 20% Παρουσία, 30% Συμπεριφορά & 50% Απόδοση στις ασκήσεις.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('new_grading_system.html', '3. Σύστημα Βαθμολόγησης')">Προβολή</button>
+                    <a href="new_grading_system.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- 4. HTML Media & Project 1940 -->
+            <div class="card">
+                <div>
+                    <span class="badge">Project</span>
+                    <h3 class="card-title">4. HTML Media & Project 1940</h3>
+                    <p class="card-text">Ετικέτες headings, br, hr, εικόνες, URLs, YouTube embed & οδηγίες για το project «Πρόσωπο του 1940».</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('html_basics_and_project_1940.html', '4. HTML Media & Project 1940')">Προβολή</button>
+                    <a href="html_basics_and_project_1940.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="slideModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Προβολή Παρουσίασης</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="slideFrame" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ΠΕΠΑΛ Ακρωτηρίου — Τμήμα Πληροφορικής</p>
+    </footer>
+
+    <script>
+        function openModal(url, title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('slideFrame').src = url;
+            document.getElementById('slideModal').style.display = 'flex';
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        function closeModal() {
+            document.getElementById('slideModal').style.display = 'none';
+            document.getElementById('slideFrame').src = '';
         }
 
-        /* Header */
-        header {
-            background: var(--gradient-hero);
-            padding: 3rem 1.5rem 2.5rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
+        window.onclick = function(event) {
+            const modal = document.getElementById('slideModal');
+            if (event.target === modal) {
+                closeModal();
+            }
         }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 300px;
-            background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .header-badge {
-            display: inline-block;
-            background: rgba(124, 58, 237, 0.2);
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            color: #d8b4fe;
-            padding: 0.35rem 1rem;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #ffffff, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.75rem;
-        }
-
-        header p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-        }
-
-        /* Banner Carousel Section */
-        .banner-container {
-            max-width: 1200px;
-            margin: 2rem auto 1rem;
-            padding: 0 1.5rem;
-            width: 100%;
-        }
-
-        .banner-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-
-        .banner-item {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            aspect-ratio: 16 / 9;
-            border: 1px solid var(--border);
-            box-shadow: 0 8px 24px rgba(0, 0, 0,
+    </script>
+</body>
+</html>
