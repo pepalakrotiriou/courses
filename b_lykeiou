@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Β' Λυκείου — ΠΕΠΑΛ Ακρωτηρίου</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #4f46e5;
+            --accent: #16a34a;
+            --text-main: #1e1b4b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+
+        header { background: white; border-bottom: 2px solid var(--border); padding: 1.5rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .back-link { color: var(--primary); text-decoration: none; font-weight: 800; }
+
+        .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; }
+        .page-title { font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
+
+        .section { background: white; border-radius: 24px; border: 2px solid var(--border); padding: 2.5rem; margin-bottom: 2.5rem; }
+        .section-header { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 1.5rem; border-bottom: 3px solid #dcfce7; padding-bottom: 0.5rem; }
+
+        .exercise-list { background: #f1f5f9; padding: 1.5rem; border-radius: 12px; margin-top: 1rem; }
+        .exercise-list ol { margin-left: 1.5rem; }
+        .exercise-list li { margin-bottom: 0.75rem; font-weight: 600; }
+
+        .sector-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .sector-card { background: #f0fdf4; border: 2px solid #86efac; border-radius: 16px; padding: 1.5rem; }
+        .sector-title { font-size: 1.25rem; font-weight: 800; color: #15803d; margin-bottom: 0.5rem; }
+
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">&larr; Αρχική</a>
+            <span style="font-weight: 700; color: var(--text-muted);">Β' Λυκείου ΠΕΠΑΛ</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Β' Λυκείου — Γλωσσομάθεια, Τομείς & AI</h1>
+
+        <!-- 1. Γλωσσομάθεια -->
+        <div class="section">
+            <h2 class="section-header">💻 1. Εισαγωγή στη Γλωσσομάθεια (Αλγόριθμοι & Προγραμματισμός)</h2>
+            <p>Σύνταξη, μεταβλητές, δομές αλγορίθμων και βασικές εντολές.</p>
+
+            <h3 style="margin-top: 1.5rem;">🔹 Α. Δομή Ακολουθίας (10 Ασκήσεις)</h3>
+            <div class="exercise-list">
+                <ol>
+                    <li>Να γραφεί αλγόριθμος που διαβάζει δύο αριθμούς και υπολογίζει το άθροισμά τους.</li>
+                    <li>Υπολογισμός εμβαδού και περιμέτρου ορθογωνίου παραλληλογράμμου.</li>
+                    <li>Μετατροπή θερμοκρασίας από βαθμούς Κελσίου σε Φαρενάιτ.</li>
+                    <li>Υπολογισμός τελικής τιμής προϊόντος με ΦΠΑ 24%.</li>
+                    <li>Υπολογισμός μέσου όρου 3 μαθημάτων.</li>
+                    <li>Υπολογισμός δόσης δανείου (κεφάλαιο + τόκος).</li>
+                    <li>Υπολογισμός κατανάλωσης καυσίμου ανά 100 χλμ.</li>
+                    <li>Μετατροπή δευτερολέπτων σε ώρες, λεπτά και δευτερόλεπτα.</li>
+                    <li>Υπολογισμός μισθού με βάση τις ώρες εργασίας και το ωρομίσθιο.</li>
+                    <li>Εναλλαγή τιμών δύο μεταβλητών Α και Β.</li>
+                </ol>
+            </div>
+
+            <h3 style="margin-top: 1.5rem;">🔹 Β. Δομή Επιλογής & Σύνθετη Επιλογή (10 Ασκήσεις)</h3>
+            <div class="exercise-list">
+                <ol>
+                    <li>Έλεγχος αν ένας αριθμός είναι θετικός, αρνητικός ή μηδέν.</li>
+                    <li>Εύρεση του μεγαλύτερου από δύο αριθμούς.</li>
+                    <li>Έλεγχος αν ένας μαθητής προβιβάζεται (Βαθμός >= 10).</li>
+                    <li>Υπολογισμός έκπτωσης βάσει συνολικού ποσού αγορών.</li>
+                    <li>Έλεγχος αρτιότητας αριθμού (ζυγός/μονός).</li>
+                    <li>Κατάταξη μαθητή σε κλίμακα (Άριστα, Πολύ Καλά, Καλά, Απορρίπτεται).</li>
+                    <li>Έλεγχος εγκυρότητας ηλικίας για δικαίωμα ψήφου (>= 17).</li>
+                    <li>Υπολογισμός χρέωσης ταξί με πάγια ταρίφα και χιλιομετρική χρέωση.</li>
+                    <li>Υπολογισμός Δείκτη Μάζας Σώματος (BMI) και κατηγοριοποίηση.</li>
+                    <li>Έλεγχος αν ένα έτος είναι δίσεκτο.</li>
+                </ol>
+            </div>
+
+            <h3 style="margin-top: 1.5rem;">🔹 Γ. Δομή Επανάληψης (10 Ασκήσεις)</h3>
+            <div class="exercise-list">
+                <ol>
+                    <li>Εμφάνιση των αριθμών από το 1 έως το 100.</li>
+                    <li>Υπολογισμός αθροίσματος των πρώτων 50 φυσικών αριθμών.</li>
+                    <li>Υπολογισμός παραγοντικού ενός αριθμού Ν (Ν!).</li>
+                    <li>Υπολογισμός μέσου όρου θερμοκρασιών 7 ημερών.</li>
+                    <li>Εύρεση του μεγαλύτερου αριθμού από μια ακολουθία 10 τιμών.</li>
+                    <li>Πλήθος θετικών και αρνητικών αριθμών μέχρι να δοθεί το 0.</li>
+                    <li>Προστασία εισαγωγής (Code check): Επανάληψη μέχρι να δοθεί σωστός κωδικός.</li>
+                    <li>Εμφάνιση της προπαίδειας ενός αριθμού.</li>
+                    <li>Υπολογισμός καταθέσεων με ετήσιο επιτόκιο για 5 έτη.</li>
+                    <li>Εύρεση πλήθους άρτιων αριθμών ανάμεσα στο 1 και το Ν.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- 2. Ασκήσεις ανά Τομέα ΕΠΑΛ -->
+        <div class="section">
+            <h2 class="section-header">🛠️ 2. Εξειδικευμένες Ασκήσεις ανά Τομέα ΕΠΑΛ</h2>
+            <div class="sector-tabs">
+                
+                <div class="sector-card">
+                    <h3 class="sector-title">⚡ Ηλεκτρολογίας & Ηλεκτρονικής</h3>
+                    <p><strong>Γλωσσομάθεια:</strong> Αλγόριθμος υπολογισμού Νόμου του Ohm ($V = I \times R$) και συνολικής αντίστασης σε σειρά/παράλληλα.</p>
+                    <p><strong>Canva Project:</strong> Δημιουργία διαδραστικής παρουσίασης για τα βασικά ηλεκτρονικά εξαρτήματα.</p>
+                </div>
+
+                <div class="sector-card">
+                    <h3 class="sector-title">🎨 Εφαρμοσμένων Τεχνών</h3>
+                    <p><strong>Γλωσσομάθεια:</strong> Αλγόριθμος υπολογισμού αναλογιών χρωμάτων Palette & μεγέθους ψηφιακής εικόνας σε Megapixels.</p>
+                    <p><strong>Canva Project:</strong> Σχεδιασμός αφίσας και Brand Identity για μια νέα επιχείρηση.</p>
+                </div>
+
+                <div class="sector-card">
+                    <h3 class="sector-title">🩺 Υγείας & Ευεξίας</h3>
+                    <p><strong>Γλωσσομάθεια:</strong> Αλγόριθμος υπολογισμού θερμιδικών αναγκών και δοσολογίας φαρμάκου βάσει σωματικού βάρους.</p>
+                    <p><strong>Canva Project:</strong> Δημιουργία Infographic για την υγιεινή διατροφή και την πρόληψη υγείας.</p>
+                </div>
+
+                <div class="sector-card">
+                    <h3 class="sector-title">💼 Διοίκησης & Οικονομίας</h3>
+                    <p><strong>Γλωσσομάθεια:</strong> Αλγόριθμος υπολογισμού μικτού/καθαρού μισθού, κρατήσεων και ισοζυγίου εσόδων-εξόδων.</p>
+                    <p><strong>Canva Project:</strong> Σχεδιασμός εταιρικής παρουσίασης Pitch Deck για μια Start-up.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. Teachable Machine -->
+        <div class="section">
+            <h2 class="section-header">🤖 3. Τεχνητή Νοημοσύνη — Google Teachable Machine</h2>
+            <p>Επισκεφθείτε το εργαλείο: <a href="https://teachablemachine.withgoogle.com/" target="_blank" style="color: var(--primary); font-weight: 800;">Teachable Machine</a></p>
+            <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                <h3>💡 Πώς λειτουργεί:</h3>
+                <ul>
+                    <li><strong>1. Συλλογή Δεδομένων (Gather):</strong> Συλλέγουμε δείγματα εικόνων, ήχων ή στάσεων σώματος μέσω web camera.</li>
+                    <li><strong>2. Εκπαίδευση (Train):</strong> Εκπαιδεύουμε το μοντέλο Μηχανικής Μάθησης (Machine Learning) με το πατήμα ενός κουμπιού.</li>
+                    <li><strong>3. Δοκιμή (Export/Test):</strong> Δοκιμάζουμε αν το μοντέλο αναγνωρίζει σωστά τα νέα αντικείμενα σε πραγματικό χρόνο!</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ΠΕΠΑΛ Ακρωτηρίου — Β' Λυκείου</p>
+    </footer>
+
+</body>
+</html>
