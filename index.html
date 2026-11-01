@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Παρουσιάσεις Πληροφορικής | ΠΕΠΑΛ Ακρωτηρίου</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-hover: #1e40af;
+            --accent: #0284c7;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .card-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background-color: #f8fafc;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: #eff6ff;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 1000px;
+            height: 85vh;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #0f172a;
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>💻 ΠΕΠΑΛ Ακρωτηρίου — Πληροφορική Α' Λυκείου</h1>
+        <p>Ψηφιακό Υλικό & Διαδραστικές Παρουσιάσεις Μαθήματος</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+
+            <!-- 1. HTML Βασικές Έννοιες & Μορφοποίηση -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge">Ενότητα 1: Web Design</span>
+                    <h3 class="card-title">1. Εισαγωγή στην HTML & Μορφοποίηση</h3>
+                    <p class="card-text">Βασικές έννοιες, ετικέτες μορφοποίησης (έντονα, πλάγια, υπογράμμιση, χρώματα, στοίχιση) και σύνταξη κώδικα.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('html_basics_pepal.html', '1. Εισαγωγή στην HTML')">Προβολή</button>
+                    <a href="html_basics_pepal.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- 2. Διαχείριση Φακέλων στα Windows -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge">Ενότητα 1: Λειτουργικά Συστηματα</span>
+                    <h3 class="card-title">2. Δομή Φακέλων (Windows Directories)</h3>
+                    <p class="card-text">Οργάνωση αρχείων, διαδρομές (paths) και οδηγίες για την εργαστηριακή άσκηση δημιουργίας φακέλων.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('windows_folders_pepal.html', '2. Δομή Φακέλων Windows')">Προβολή</button>
+                    <a href="windows_folders_pepal.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- 3. Νέο Σύστημα Βαθμολόγησης -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge">Γενικά Μαθήματος</span>
+                    <h3 class="card-title">3. Νέο Σύστημα Βαθμολόγησης</h3>
+                    <p class="card-text">Ανάλυση κριτηρίων αξιολόγησης: 20% Παρουσία, 30% Συμπεριφορά & 50% Απόδοση στις ασκήσεις.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('new_grading_system.html', '3. Νέο Σύστημα Βαθμολόγησης')">Προβολή</button>
+                    <a href="new_grading_system.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- 4. HTML Βασικές Ετικέτες & Project 1940 -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge">Ενότητα 1: Web Design & Project</span>
+                    <h3 class="card-title">4. HTML Ετικέτες, Media & Project 1940</h3>
+                    <p class="card-text">Ετικέτες headings, br, hr, εικόνες, URLs, YouTube embed & οδηγίες για το project «Πρόσωπο του 1940».</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openModal('html_basics_and_project_1940.html', '4. HTML Media & Project 1940')">Προβολή</button>
+                    <a href="html_basics_and_project_1940.html" target="_blank" class="btn btn-outline">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Προβολής Slides -->
+    <div id="slideModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Προβολή Παρουσίασης</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="slideFrame" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ΠΕΠΑΛ Ακρωτηρίου — Τμήμα Πληροφορικής</p>
+        <p><small>Φιλοξενείται στο <a href="https://github.com/pepalakrotiriou2" target="_blank">GitHub Pages</a></small></p>
+    </footer>
+
+    <script>
+        function openModal(url, title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('slideFrame').src = url;
+            document.getElementById('slideModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('slideModal').style.display = 'none';
+            document.getElementById('slideFrame').src = '';
+        }
+
+        // Κλείσιμο modal με κλικ έξω από το πλαίσιο
+        window.onclick = function(event) {
+            const modal = document.getElementById('slideModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
