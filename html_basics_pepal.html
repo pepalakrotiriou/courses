@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Εισαγωγή στην HTML & Μορφοποίηση - ΠΕΠΑΛ Ακρωτηρίου</title>
+    <style>
+        :root { --primary: #1e3a8a; --accent: #0284c7; --bg: #f8fafc; --text: #0f172a; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .slide { background: white; max-width: 900px; margin: 20px auto; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 8px solid var(--primary); }
+        h1, h2 { color: var(--primary); }
+        code { background: #f1f5f9; color: #d97706; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #1e293b; color: #f8fafc; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; }
+        .highlight { background: #e0f2fe; padding: 10px; border-radius: 6px; border-left: 4px solid var(--accent); margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <h1>💻 HTML - Βασικές Έννοιες & Μορφοποίηση</h1>
+        <p><strong>Τάξη:</strong> Α' Λυκείου ΠΕΠΑΛ | <strong>Μάθημα:</strong> Πληροφορική</p>
+    </div>
+
+    <div class="slide">
+        <h2>🌐 Τι είναι η HTML;</h2>
+        <p><strong>HTML</strong> σημαίνει <em>HyperText Markup Language</em> (Γλώσσα Σήμανσης Υπερκειμένου).</p>
+        <ul>
+            <li>Είναι η βασική γλώσσα με την οποία κατασκευάζονται όλες οι ιστοσελίδες στο διαδίκτυο.</li>
+            <li>Δεν είναι γλώσσα προγραμματισμού, αλλά γλώσσα σήμανσης (χρησιμοποιεί <strong>ετικέτες / tags</strong>).</li>
+            <li>Ο φυλλομετρητής (browser, π.χ. Chrome) διαβάζει την HTML και την εμφανίζει στην οθόνη.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>🏗️ Βασική Δομή HTML Εγγράφου</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="el"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Η Πρώτη μου Ιστοσελίδα&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Καλώς ήρθατε!&lt;/h1&gt;
+    &lt;p&gt;Αυτό είναι το πρώτο μου κείμενο.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="slide">
+        <h2>✍️ Ετικέτες Μορφοποίησης Κειμένου</h2>
+        <ul>
+            <li><code>&lt;b&gt;Έντονα&lt;/b&gt;</code> ή <code>&lt;strong&gt;Σημαντικό&lt;/strong&gt;</code> &rarr; <strong>Έντονα γράμματα</strong></li>
+            <li><code>&lt;i&gt;Πλάγια&lt;/i&gt;</code> ή <code>&lt;em&gt;Έμφαση&lt;/em&gt;</code> &rarr; <em>Πλάγια γράμματα</em></li>
+            <li><code>&lt;u&gt;Υπογράμμιση&lt;/u&gt;</code> &rarr; <u>Υπογραμμισμένο κείμενο</u></li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>🎨 Χρώματα & Στοίχιση</h2>
+        <p>Χρησιμοποιούμε το attribute <code>style</code> για να αλλάξουμε εμφάνιση:</p>
+        <div class="highlight">
+            <p style="color: red;">Κείμενο με κόκκινο χρώμα: <code>style="color: red;"</code></p>
+            <p style="text-align: center;">Κείμενο στο κέντρο: <code>style="text-align: center;"</code></p>
+            <p style="text-align: right; color: blue;">Δεξιά στοίχιση & μπλε χρώμα: <code>style="text-align: right; color: blue;"</code></p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>🛠️ Εργαστηριακή Άσκηση (Αντιγραφή & Εξάσκηση)</h2>
+        <p>Ανοίξτε το <strong>Notepad</strong> (Σημειωματάριο) και αντιγράψτε τον παρακάτω κώδικα. Αποθηκεύστε το ως <code>mypage.html</code>:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="el"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ασκηση Μορφοποίησης&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style="background-color: #f0fdf4;"&gt;
+
+    &lt;h1 style="color: #15803d; text-align: center;"&gt;ΠΕΠΑΛ Ακρωτηρίου&lt;/h1&gt;
+    &lt;hr&gt;
+    &lt;p style="text-align: justify;"&gt;
+        Μαθαίνουμε &lt;b&gt;HTML&lt;/b&gt; στην &lt;i&gt;Α' Λυκείου&lt;/i&gt;! 
+        Η μορφοποίηση κειμένου είναι &lt;u&gt;πολύ σημαντική&lt;/u&gt; για τις ιστοσελίδες μας.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+</body>
+</html>

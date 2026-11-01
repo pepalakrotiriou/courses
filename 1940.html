@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. HTML Media & Project 1940 - ΠΕΠΑΛ Ακρωτηρίου</title>
+    <style>
+        :root { --primary: #854d0e; --accent: #ca8a04; --bg: #fefce8; --text: #1c1917; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .slide { background: white; max-width: 900px; margin: 20px auto; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 8px solid var(--primary); }
+        h1, h2 { color: var(--primary); }
+        code { background: #fef08a; color: #713f12; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #292524; color: #fef08a; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: monospace; }
+        .project-box { background: #fef9c3; border: 2px dashed var(--accent); padding: 20px; border-radius: 10px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <h1>📜 HTML Media, Σύνδεσμοι & Project 1940</h1>
+        <p><strong>Τάξη:</strong> Α' Λυκείου ΠΕΠΑΛ | <strong>Διαθεματικό Project Ιστορίας & Πληροφορικής</strong></p>
+    </div>
+
+    <div class="slide">
+        <h2>🏷️ Βασικές Ετικέτες HTML</h2>
+        <ul>
+            <li><code>&lt;h1&gt;</code> έως <code>&lt;h6&gt;</code> &rarr; Τίτλοι και επικεφαλίδες (Heading 1 = μεγαλύτερο).</li>
+            <li><code>&lt;p&gt;</code> &rarr; Παράγραφος κειμένου.</li>
+            <li><code>&lt;br&gt;</code> &rarr; Αλλαγή γραμμής (Line break - δεν χρειάζεται κλείσιμο).</li>
+            <li><code>&lt;hr&gt;</code> &rarr; Οριζόντια γραμμή διαχωρισμού (Horizontal rule).</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>🖼️ Εικόνες, URLs & YouTube</h2>
+        <ul>
+            <li><strong>Εικόνα:</strong> <code>&lt;img src="photo.jpg" alt="Περιγραφή" width="400"&gt;</code></li>
+            <li><strong>Σύνδεσμος (URL):</strong> <code>&lt;a href="https://example.com" target="_blank"&gt;Επισκεφθείτε τη σελίδα&lt;/a&gt;</code></li>
+            <li><strong>YouTube Embed:</strong>
+<pre><code>&lt;iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/VIDEO_ID" 
+    title="YouTube video player" frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>🏛️ Project: «Ιστορικό Πρόσωπο του 1940»</h2>
+        <div class="project-box">
+            <h3>📋 Απαιτήσεις Εργασίας:</h3>
+            <ol>
+                <li><strong>Χρώμα Φόντου:</strong> Επιλογή κατάλληλου background-color (π.χ. <code>#f5f5dc</code> ή <code>#f4f1ea</code>).</li>
+                <li><strong>Τίτλος:</strong> Επικεφαλίδα <code>&lt;h1&gt;</code> με το όνομα του ιστορικού προσώπου.</li>
+                <li><strong>Περιγραφή:</strong> Παράγραφοι με έντονα (<code>&lt;b&gt;</code>) και πλάγια (<code>&lt;i&gt;</code>) γράμματα για τη δράση του.</li>
+                <li><strong>Εικόνα:</strong> Ενσωμάτωση φωτογραφίας του προσώπου με την ετικέτα <code>&lt;img&gt;</code>.</li>
+                <li><strong>Βίντεο:</strong> Ενσωμάτωση σχετικού βίντεο από το YouTube με <code>&lt;iframe&gt;</code>.</li>
+            </ol>
+        </div>
+    </div>
+
+</body>
+</html>
