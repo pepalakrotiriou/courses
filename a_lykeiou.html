@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Α' Λυκείου — ΠΕΠΑΛ Ακρωτηρίου</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #4f46e5;
+            --accent: #9333ea;
+            --text-main: #1e1b4b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+
+        header { background: white; border-bottom: 2px solid var(--border); padding: 1.5rem; sticky: top; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .back-link { color: var(--primary); text-decoration: none; font-weight: 800; font-size: 1rem; }
+        
+        .nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .nav-btn { background: #f1f5f9; color: var(--text-main); padding: 0.5rem 1rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; }
+        .nav-btn:hover { background: var(--primary); color: white; }
+
+        .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; }
+        .page-title { font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
+        
+        .padlet-box { background: linear-gradient(135deg, #e0e7ff, #f3e8ff); border: 2px dashed var(--primary); padding: 1.5rem; border-radius: 20px; margin-bottom: 3rem; text-align: center; }
+        .padlet-btn { display: inline-block; background: var(--primary); color: white; padding: 0.8rem 1.8rem; border-radius: 12px; font-weight: 800; text-decoration: none; margin-top: 0.75rem; }
+
+        .section { background: white; border-radius: 24px; border: 2px solid var(--border); padding: 2.5rem; margin-bottom: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .section-header { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 1.5rem; border-bottom: 3px solid #e0e7ff; padding-bottom: 0.5rem; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: #f8fafc; border: 1px solid var(--border); padding: 1.5rem; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
+        .card-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+        
+        .btn-action { display: inline-block; background: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 10px; font-weight: 700; text-decoration: none; text-align: center; }
+        
+        .canva-steps { background: #fdf4ff; border-left: 5px solid var(--accent); padding: 1.5rem; border-radius: 12px; margin-top: 1rem; }
+        .canva-steps ol { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .canva-steps li { margin-bottom: 0.5rem; font-weight: 600; }
+
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">&larr; Αρχική</a>
+            <div class="nav-links">
+                <a href="#folders" class="nav-btn">📁 Φάκελοι</a>
+                <a href="#html" class="nav-btn">🌐 HTML</a>
+                <a href="#canva" class="nav-btn">🎨 Canva</a>
+                <a href="#saferinternet" class="nav-btn">🛡️ SaferInternet</a>
+                <a href="#appinventor" class="nav-btn">📱 App Inventor & AI</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Α' Λυκείου — Ύλη & Παρουσιάσεις</h1>
+        
+        <!-- Padlet Box -->
+        <div class="padlet-box">
+            <h2>📌 Παράδοση Εργασιών Μαθητών</h2>
+            <p>Ανεβάστε τις εργασίες σας (HTML, Canva κολάζ, projects) στο Padlet του τμήματος:</p>
+            <a href="HTTPS_YOUR_PADLET_LINK_HERE" target="_blank" class="padlet-btn">Μετάβαση στο Padlet Εργασιών &rarr;</a>
+        </div>
+
+        <!-- 1. Φάκελοι -->
+        <div id="folders" class="section">
+            <h2 class="section-header">📁 1. Διαχείριση Φακέλων (Directories)</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div>
+                        <h3 class="card-title">Δομή Φακέλων Windows</h3>
+                        <p class="card-desc">Οργάνωση αρχείων, διαδρομές (paths) και οδηγίες δημιουργίας φακέλων 2026-2027 & τμήματος.</p>
+                    </div>
+                    <a href="windows_folders_pepal.html" target="_blank" class="btn-action">Προβολή Slide Deck</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. HTML -->
+        <div id="html" class="section">
+            <h2 class="section-header">🌐 2. Εισαγωγή στην HTML & Web Design</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div>
+                        <h3 class="card-title">HTML Βασικές Έννοιες & Μορφοποίηση</h3>
+                        <p class="card-text">Ετικέτες μορφοποίησης: έντονα, πλάγια, υπογράμμιση, χρώματα, στοίχιση.</p>
+                    </div>
+                    <a href="html_basics_pepal.html" target="_blank" class="btn-action">Προβολή Slide Deck</a>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3 class="card-title">HTML Media, Links & Project 1940</h3>
+                        <p class="card-text">Headings, br, hr, εικόνες, συνδέσμοι URL, YouTube embed & οδηγίες εργασίας.</p>
+                    </div>
+                    <a href="html_basics_and_project_1940.html" target="_blank" class="btn-action">Προβολή Slide Deck</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Canva -->
+        <div id="canva" class="section">
+            <h2 class="section-header">🎨 3. Δημιουργία Γραφικών με το Canva</h2>
+            <p>Επισκεφθείτε την πλατφόρμα: <a href="https://www.canva.com" target="_blank" style="color: var(--accent); font-weight: 800;">www.canva.com</a></p>
+            
+            <div class="canva-steps">
+                <h3>📝 Βασικές Οδηγίες Χρήσης Canva:</h3>
+                <ol>
+                    <li><strong>Σύνδεση:</strong> Πατάμε <em>"Σύνδεση / Sign in"</em> και επιλέγουμε <strong>"Συνέχεια με Google"</strong> με τον σχολικό ή προσωπικό μας λογαριασμό.</li>
+                    <li><strong>Αναζήτηση Templates:</strong> Στην αρχική σελίδα, στο πλαίσιο αναζήτησης, γράφουμε <em>"Photo Collage"</em> ή <em>"Αφίσα"</em> για να βρούμε έτοιμα θέματα.</li>
+                    <li><strong>Προσθήκη Στοιχείων (Elements):</strong> Από το αριστερό μενού επιλέγουμε <strong>"Elements"</strong> για να βρούμε σχήματα, αυτοκόλλητα, γραμμές και πλαίσια φωτογραφιών.</li>
+                    <li><strong>Επεξεργασία & Κείμενο:</strong> Επιλέγουμε <strong>"Text"</strong> -> <em>"Add a text box"</em> για να προσθέσουμε τίτλους. Αλλάζουμε χρώματα, γραμματοσειρές και μεγέθη.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- 4. SaferInternet4Kids -->
+        <div id="saferinternet" class="section">
+            <h2 class="section-header">🛡️ 4. Ασφάλεια στο Διαδίκτυο & Διαγωνισμός 2027</h2>
+            
+            <div style="background: #e0f2fe; border-left: 5px solid #0284c7; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3>🏆 Πανελλήνιος Μαθητικός Διαγωνισμός Safer Internet Day 2027</h3>
+                <p>Μάθετε περισσότερα και δηλώστε συμμετοχή στον επίσημο σύνδεσμο:</p>
+                <a href="https://saferinternet4kids.gr/sid/sid_2027/panhellenic-student-competition-for-safer-internet-day-2027/" target="_blank" class="btn-action" style="background: #0284c7; margin-top: 0.5rem;">Πληροφορίες Διαγωνισμού &rarr;</a>
+            </div>
+
+            <h3 style="margin-bottom: 1rem;">📚 Παρουσιάσεις Ασφάλειας & Κοινωνικών Δικτύων:</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <h4 class="card-title">Cyberbullying & Εκφοβισμός</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/cyberbullying-7/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Η Δύναμη της Εικόνας</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/powerofimage_teens/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Digital Marketing & Έφηβοι</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/digital_marketing_t/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Επικίνδυνες Προκλήσεις (Challenges)</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/parousiasi_epikindines_proklhseis/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Πρότυπα στα Κοινωνικά Δίκτυα</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/paroysiasi_protipa_koinonika_diktia/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Online Gaming & Ασφάλεια</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/parousiasi_online_gaming/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Ασφάλεια στα Social Media</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/parousiasi_asfaleia_sta_koinonika_diktiia/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Hate Speech (Ρητορική Μίσους)</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/hate-speech-2/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Τεχνητή Νοημοσύνη (SID AI)</h4>
+                    <a href="https://saferinternet4kids.gr/parousiaseis/sid_2024_ai/" target="_blank" class="btn-action">Προβολή</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. App Inventor & AI -->
+        <div id="appinventor" class="section">
+            <h2 class="section-header">📱 5. App Inventor & Τεχνητή Νοημοσύνη</h2>
+            <p>Εδώ θα προσθεθεί το επιπλέον υλικό για τον προγραμματισμό εφαρμογών Android και τα εργαλεία AI.</p>
+            <!-- Χώρος για μελλοντικό υλικό -->
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ΠΕΠΑΛ Ακρωτηρίου — Α' Λυκείου</p>
+    </footer>
+
+</body>
+</html>
