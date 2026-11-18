@@ -15,6 +15,8 @@
             --primary-hover: #4338ca;
             --accent-purple: #9333ea;
             --accent-light: #f3e8ff;
+            --accent-teal: #0d9488;
+            --accent-teal-light: #ccfbf1;
             --text-main: #1e1b4b;
             --text-muted: #64748b;
             --border: #e2e8f0;
@@ -36,7 +38,7 @@
 
         header {
             background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
-            padding: 3.5rem 1.5rem;
+            padding: 3.5rem 1.5rem 3rem;
             text-align: center;
             border-bottom: 2px solid #c7d2fe;
         }
@@ -54,6 +56,26 @@
             font-size: 1.25rem;
             color: #475569;
             font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .teachers-badge {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #c7d2fe;
+            padding: 0.65rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .teachers-badge strong {
+            color: var(--primary);
         }
 
         .banner-container {
@@ -100,12 +122,16 @@
             font-size: 1.05rem;
         }
 
-        .container {
+        main.container {
             max-width: 1200px;
             margin: 3rem auto;
             padding: 0 1.5rem;
             flex: 1;
             width: 100%;
+        }
+
+        .section-block {
+            margin-bottom: 4rem;
         }
 
         .section-title {
@@ -126,6 +152,11 @@
             height: 36px;
             background: linear-gradient(135deg, var(--primary), var(--accent-purple));
             border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .section-title.teal-accent::before {
+            background: linear-gradient(135deg, var(--accent-teal), #2563eb);
         }
 
         .classes-grid {
@@ -152,6 +183,10 @@
             transform: translateY(-6px);
         }
 
+        .class-card.teal-card:hover {
+            border-color: var(--accent-teal);
+        }
+
         .class-tag {
             font-size: 0.85rem;
             font-weight: 800;
@@ -165,6 +200,11 @@
             margin-bottom: 1rem;
         }
 
+        .class-tag.teal-tag {
+            color: var(--accent-teal);
+            background: var(--accent-teal-light);
+        }
+
         .class-title {
             font-family: 'Outfit', sans-serif;
             font-size: 2.2rem;
@@ -173,11 +213,25 @@
             margin-bottom: 0.75rem;
         }
 
+        .ai-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
         .class-desc {
             color: var(--text-muted);
             font-size: 1.05rem;
             margin-bottom: 2rem;
             line-height: 1.6;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
         }
 
         .btn {
@@ -195,6 +249,7 @@
             background: linear-gradient(135deg, var(--primary), var(--accent-purple));
             color: white;
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+            flex: 1;
         }
 
         .btn-primary:hover {
@@ -202,24 +257,56 @@
             transform: scale(1.02);
         }
 
+        .btn-teal {
+            background: linear-gradient(135deg, var(--accent-teal), #2563eb);
+            color: white;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+            flex: 1;
+        }
+
+        .btn-teal:hover {
+            opacity: 0.95;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--primary);
+            border: 2px solid #c7d2fe;
+            padding: 1rem 1.1rem;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e7ff;
+            transform: scale(1.02);
+        }
+
         .btn-disabled {
             background: #e2e8f0;
             color: #94a3b8;
             cursor: not-allowed;
+            width: 100%;
         }
 
         footer {
             background: white;
             border-top: 1px solid var(--border);
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             color: var(--text-muted);
             font-weight: 600;
         }
 
+        .footer-teachers {
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
         @media (max-width: 900px) {
             .banner-grid { grid-template-columns: 1fr; }
             .header-title { font-size: 2.2rem; }
+            .section-title { font-size: 1.75rem; }
         }
     </style>
 </head>
@@ -228,6 +315,9 @@
     <header>
         <h1 class="header-title">💻 ΠΕΠΑΛ Ακρωτηρίου</h1>
         <p class="header-subtitle">Ψηφιακός Κόμβος Μαθημάτων Πληροφορικής & Νέων Τεχνολογιών</p>
+        <div class="teachers-badge">
+            <span>👩‍🏫 <strong>Καθηγήτριες Πληροφορικής:</strong> Αλίνα Λιονουδάκη • Παρασκευή Καντεράκη • Αριστέα Τερεζάκη</span>
+        </div>
     </header>
 
     <div class="banner-container">
@@ -247,44 +337,115 @@
         </div>
     </div>
 
-    <div class="container">
-        <h2 class="section-title">Επιλέξτε Τάξη</h2>
+    <main class="container">
+        
+        <!-- 1η Ενότητα: Επιλογή Τάξης -->
+        <section class="section-block">
+            <h2 class="section-title">Επιλέξτε Τάξη</h2>
 
-        <div class="classes-grid">
-            <!-- Α' Λυκείου -->
-            <div class="class-card">
-                <div>
-                    <span class="class-tag">Εισαγωγικό Επίπεδο</span>
-                    <h3 class="class-title">Α' Λυκείου</h3>
-                    <p class="class-desc">Δομή Φακέλων, HTML, Canva, Ασφάλεια στο Διαδίκτυο (SaferInternet4Kids), App Inventor & Τεχνητή Νοημοσύνη.</p>
+            <div class="classes-grid">
+                <!-- Α' Λυκείου -->
+                <div class="class-card">
+                    <div>
+                        <span class="class-tag">Εισαγωγικό Επίπεδο</span>
+                        <h3 class="class-title">Α' Λυκείου</h3>
+                        <p class="class-desc">Δομή Φακέλων, HTML, Canva, Ασφάλεια στο Διαδίκτυο (SaferInternet4Kids), App Inventor & Τεχνητή Νοημοσύνη.</p>
+                    </div>
+                    <a href="a_lykeiou.html" class="btn btn-primary">Είσοδος στο Μάθημα &rarr;</a>
                 </div>
-                <a href="a_lykeiou.html" class="btn btn-primary">Είσοδος στο Μάθημα &rarr;</a>
-            </div>
 
-            <!-- Β' Λυκείου -->
-            <div class="class-card">
-                <div>
-                    <span class="class-tag">Εξειδικευμένο Επίπεδο</span>
-                    <h3 class="class-title">Β' Λυκείου</h3>
-                    <p class="class-desc">Εισαγωγή στη Γλωσσομάθεια, Ασκήσεις Ανά Τομέα, Canva Design, Teachable Machine & Εφαρμογές AI.</p>
+                <!-- Β' Λυκείου -->
+                <div class="class-card">
+                    <div>
+                        <span class="class-tag">Εξειδικευμένο Επίπεδο</span>
+                        <h3 class="class-title">Β' Λυκείου</h3>
+                        <p class="class-desc">Εισαγωγή στη Γλωσσομάθεια, Ασκήσεις Ανά Τομέα, Canva Design, Teachable Machine & Εφαρμογές AI.</p>
+                    </div>
+                    <a href="b_lykeiou.html" class="btn btn-primary">Είσοδος στο Μάθημα &rarr;</a>
                 </div>
-                <a href="b_lykeiou.html" class="btn btn-primary">Είσοδος στο Μάθημα &rarr;</a>
-            </div>
 
-            <!-- Γ' Λυκείου -->
-            <div class="class-card">
-                <div>
-                    <span class="class-tag">Προχωρημένο Επίπεδο</span>
-                    <h3 class="class-title">Γ' Λυκείου</h3>
-                    <p class="class-desc">Πανελλαδικά εξεταζόμενα μαθήματα, προηγμένες δομές δεδομένων και ολοκληρωμένα projects.</p>
+                <!-- Γ' Λυκείου -->
+                <div class="class-card">
+                    <div>
+                        <span class="class-tag">Προχωρημένο Επίπεδο</span>
+                        <h3 class="class-title">Γ' Λυκείου</h3>
+                        <p class="class-desc">Πανελλαδικά εξεταζόμενα μαθήματα, προηγμένες δομές δεδομένων και ολοκληρωμένα projects.</p>
+                    </div>
+                    <button class="btn btn-disabled" disabled>Προσεχώς</button>
                 </div>
-                <button class="btn btn-disabled" disabled>Προσεχώς</button>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <!-- 2η Ενότητα: Ενέργεια, Μεταφορές & Επικοινωνίες Α' Λυκείου -->
+        <section class="section-block">
+            <h2 class="section-title teal-accent">⚡ Ενέργεια, Μεταφορές & Επικοινωνίες — Α' Λυκείου</h2>
+
+            <div class="classes-grid">
+                <div class="class-card teal-card" style="max-width: 540px;">
+                    <div>
+                        <span class="class-tag teal-tag">Α' Τετράμηνο • Εργαστήριο</span>
+                        <h3 class="ai-card-title">1η Άσκηση — Α' Τετράμηνο</h3>
+                        <p class="class-desc">Φύλλο εργασίας και οδηγίες για την πρώτη εργαστηριακή άσκηση του Α' Τετραμήνου στο μάθημα Ενέργεια, Μεταφορές & Επικοινωνίες.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="1i_askisi_a_tetramino.pdf" target="_blank" class="btn btn-teal">Προβολή PDF</a>
+                        <a href="1i_askisi_a_tetramino.pdf" download class="btn btn-secondary" title="Λήψη αρχείου">⬇️</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3η Ενότητα: Παρουσιάσεις ΤΝ Α' Λυκείου -->
+        <section class="section-block">
+            <h2 class="section-title">🤖 Τεχνητή Νοημοσύνη (ΤΝ) — Α' Λυκείου</h2>
+
+            <div class="classes-grid">
+                <!-- Παρουσίαση 1 -->
+                <div class="class-card">
+                    <div>
+                        <span class="class-tag">Ενότητα 1 • Βασικές Αρχές</span>
+                        <h3 class="ai-card-title">Ηθική Χρήση ΤΝ</h3>
+                        <p class="class-desc">Αλγοριθμική προκατάληψη, ανθρώπινη επίβλεψη, προστασία προσωπικών δεδομένων και ακαδημαϊκή ακεραιότητα στην εποχή της ΤΝ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="Ηθική Χρήση ΤΝ.pdf" target="_blank" class="btn btn-primary">Προβολή PDF</a>
+                        <a href="Ηθική Χρήση ΤΝ.pdf" download class="btn btn-secondary" title="Λήψη αρχείου">⬇️</a>
+                    </div>
+                </div>
+
+                <!-- Παρουσίαση 2 -->
+                <div class="class-card">
+                    <div>
+                        <span class="class-tag">Ενότητα 2 • Prompt Engineering</span>
+                        <h3 class="ai-card-title">Δημιουργία Prompts</h3>
+                        <p class="class-desc">Πώς διατυπώνουμε σαφείς εντολές (Ρόλος, Εργασία, Πλαίσιο, Μορφή) για να αξιοποιούμε δημιουργικά τα εργαλεία ΤΝ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="Prompt_Engineering.pdf" target="_blank" class="btn btn-primary">Προβολή PDF</a>
+                        <a href="Prompt_Engineering.pdf" download class="btn btn-secondary" title="Λήψη αρχείου">⬇️</a>
+                    </div>
+                </div>
+
+                <!-- Παρουσίαση 3 -->
+                <div class="class-card">
+                    <div>
+                        <span class="class-tag">Ενότητα 3 • Εργαστήριο</span>
+                        <h3 class="ai-card-title">Εργαστήριο ΤΝ & Ασφάλεια</h3>
+                        <p class="class-desc">Πρακτική εφαρμογή: Σενάρια χρήσης ΤΝ, δημιουργία εκπαιδευτικού κόμικ και έλεγχος εγκυρότητας πληροφοριών.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="Ergastirio_TN.pdf" target="_blank" class="btn btn-primary">Προβολή PDF</a>
+                        <a href="Ergastirio_TN.pdf" download class="btn btn-secondary" title="Λήψη αρχείου">⬇️</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
         <p>&copy; 2026 ΠΕΠΑΛ Ακρωτηρίου — Τμήμα Πληροφορικής</p>
+        <p class="footer-teachers">Καθηγήτριες Πληροφορικής: Αλίνα Λιονουδάκη, Παρασκευή Καντεράκη, Αριστέα Τερεζάκη</p>
     </footer>
 
 </body>
