@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Παρουσιάσεις Πληροφορικής | ΠΕΠΑΛ Ακρωτηρίου</title>
+    <title>Παρουσιάσεις Πληροφορικής Α' Λυκείου | ΠΕΠΑΛ Ακρωτηρίου</title>
     <style>
         :root {
             --primary: #1e3a8a;
             --primary-hover: #1e40af;
             --accent: #0284c7;
+            --ai-primary: #6d28d9;
+            --ai-hover: #5b21b6;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #0f172a;
@@ -35,9 +37,27 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            padding: 2.5rem 1rem;
+            padding: 2.5rem 1rem 2rem;
             text-align: center;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: background 0.2s;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.25);
         }
 
         header h1 {
@@ -47,14 +67,40 @@
 
         header p {
             font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.95;
+        }
+
+        .teachers-header {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            background: rgba(15, 23, 42, 0.25);
+            display: inline-block;
+            padding: 0.45rem 1.2rem;
+            border-radius: 999px;
         }
 
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 2.5rem auto;
             padding: 0 1rem;
             flex: 1;
+            width: 100%;
+        }
+
+        .section-heading {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-heading.ai-heading {
+            color: var(--ai-primary);
+            margin-top: 3rem;
         }
 
         .grid {
@@ -90,15 +136,24 @@
             color: #0369a1;
             font-size: 0.8rem;
             font-weight: 600;
-            padding: 0.25rem 0.6rem;
+            padding: 0.25rem 0.65rem;
             border-radius: 20px;
             margin-bottom: 0.75rem;
+        }
+
+        .badge-ai {
+            background-color: #f3e8ff;
+            color: #6b21a8;
         }
 
         .card-title {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
+        }
+
+        .card-title.ai-title {
+            color: var(--ai-primary);
         }
 
         .card-text {
@@ -137,6 +192,15 @@
             background-color: var(--primary-hover);
         }
 
+        .btn-ai {
+            background-color: var(--ai-primary);
+            color: white;
+        }
+
+        .btn-ai:hover {
+            background-color: var(--ai-hover);
+        }
+
         .btn-outline {
             background-color: transparent;
             color: var(--primary);
@@ -145,6 +209,16 @@
 
         .btn-outline:hover {
             background-color: #eff6ff;
+        }
+
+        .btn-outline-ai {
+            background-color: transparent;
+            color: var(--ai-primary);
+            border: 1px solid var(--ai-primary);
+        }
+
+        .btn-outline-ai:hover {
+            background-color: #f5f3ff;
         }
 
         /* Modal styling */
@@ -205,11 +279,15 @@
 
         footer {
             text-align: center;
-            padding: 1.5rem;
+            padding: 1.75rem 1rem;
             background-color: #0f172a;
             color: white;
             font-size: 0.9rem;
             margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.35rem;
         }
 
         footer a {
@@ -221,11 +299,18 @@
 <body>
 
     <header>
+        <a href="index.html" class="back-link">&larr; Επιστροφή στην Αρχική</a>
         <h1>💻 ΠΕΠΑΛ Ακρωτηρίου — Πληροφορική Α' Λυκείου</h1>
         <p>Ψηφιακό Υλικό & Διαδραστικές Παρουσιάσεις Μαθήματος</p>
+        <div class="teachers-header">
+            👩‍🏫 Καθηγήτριες Πληροφορικής: <strong>Αλίνα Λιονουδάκη • Παρασκευή Καντεράκη • Αριστέα Τερεζάκη</strong>
+        </div>
     </header>
 
-    <div class="container">
+    <main class="container">
+
+        <!-- Ενότητα 1: Βασικές Παρουσιάσεις Πληροφορικής -->
+        <h2 class="section-heading">📚 Βασικές Ενότητες & Web Design</h2>
         <div class="grid">
 
             <!-- 1. HTML Βασικές Έννοιες & Μορφοποίηση -->
@@ -244,7 +329,7 @@
             <!-- 2. Διαχείριση Φακέλων στα Windows -->
             <div class="card">
                 <div class="card-body">
-                    <span class="badge">Ενότητα 1: Λειτουργικά Συστηματα</span>
+                    <span class="badge">Ενότητα 1: Λειτουργικά Συστήματα</span>
                     <h3 class="card-title">2. Δομή Φακέλων (Windows Directories)</h3>
                     <p class="card-text">Οργάνωση αρχείων, διαδρομές (paths) και οδηγίες για την εργαστηριακή άσκηση δημιουργίας φακέλων.</p>
                 </div>
@@ -281,9 +366,55 @@
             </div>
 
         </div>
-    </div>
 
-    <!-- Modal Προβολής Slides -->
+        <!-- Ενότητα 2: Τεχνητή Νοημοσύνη (ΤΝ) -->
+        <h2 class="section-heading ai-heading">🤖 Τεχνητή Νοημοσύνη (ΤΝ) & Ηθική</h2>
+        <div class="grid">
+
+            <!-- ΤΝ 1: AI and Ethics -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-ai">ΤΝ • Ενότητα 1: Βασικές Αρχές</span>
+                    <h3 class="card-title ai-title">1. Ηθική Χρήση ΤΝ (AI & Ethics)</h3>
+                    <p class="card-text">Αλγοριθμική προκατάληψη, ανθρώπινη επίβλεψη, προστασία προσωπικών δεδομένων και ακαδημαϊκή ακεραιότητα.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-ai" onclick="openModal('AI and Ethics.pdf', 'Ηθική Χρήση ΤΝ (AI & Ethics)')">Προβολή PDF</button>
+                    <a href="AI and Ethics.pdf" target="_blank" class="btn btn-outline-ai">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+            <!-- ΤΝ 2: Δημιουργία Prompts -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-ai">ΤΝ • Ενότητα 2: Prompt Engineering</span>
+                    <h3 class="card-title ai-title">2. Δημιουργία Prompts</h3>
+                    <p class="card-text">Πώς διατυπώνουμε σαφείς εντολές (Ρόλος, Εργασία, Πλαίσιο, Μορφή) για να αξιοποιούμε δημιουργικά τα εργαλεία ΤΝ.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-ai" onclick="openModal('Prompt_Engineering.pdf', 'Δημιουργία Prompts')">Προβολή PDF</button>
+                    <a href="Prompt_Engineering.pdf" target="_blank" class="btn btn-outline-ai">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+            <!-- ΤΝ 3: Εργαστήριο ΤΝ & Ασφάλεια -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-ai">ΤΝ • Ενότητα 3: Εργαστήριο</span>
+                    <h3 class="card-title ai-title">3. Εργαστήριο ΤΝ & Ψηφιακή Ασφάλεια</h3>
+                    <p class="card-text">Πρακτική εφαρμογή: Σενάρια χρήσης ΤΝ, δημιουργία εκπαιδευτικού κόμικ και έλεγχος εγκυρότητας πληροφοριών.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-ai" onclick="openModal('Ergastirio_TN.pdf', 'Εργαστήριο ΤΝ & Ψηφιακή Ασφάλεια')">Προβολή PDF</button>
+                    <a href="Ergastirio_TN.pdf" target="_blank" class="btn btn-outline-ai">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Modal Προβολής Slides & PDF -->
     <div id="slideModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -298,6 +429,7 @@
 
     <footer>
         <p>&copy; 2026 ΠΕΠΑΛ Ακρωτηρίου — Τμήμα Πληροφορικής</p>
+        <p>Καθηγήτριες Πληροφορικής: Αλίνα Λιονουδάκη, Παρασκευή Καντεράκη, Αριστέα Τερεζάκη</p>
         <p><small>Φιλοξενείται στο <a href="https://github.com/pepalakrotiriou2" target="_blank">GitHub Pages</a></small></p>
     </footer>
 
