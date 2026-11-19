@@ -9,6 +9,9 @@
             --primary: #1e3a8a;
             --primary-hover: #1e40af;
             --accent: #0284c7;
+            --safe-primary: #047857;
+            --safe-hover: #065f46;
+            --safe-bg: #ecfdf5;
             --ai-primary: #6d28d9;
             --ai-hover: #5b21b6;
             --bg-color: #f8fafc;
@@ -98,9 +101,85 @@
             gap: 0.5rem;
         }
 
+        .section-heading.safe-heading {
+            color: var(--safe-primary);
+            margin-top: 3.5rem;
+        }
+
         .section-heading.ai-heading {
             color: var(--ai-primary);
-            margin-top: 3rem;
+            margin-top: 3.5rem;
+        }
+
+        /* Ειδικό Banner Διαγωνισμού SaferInternet4Kids & Padlet */
+        .contest-banner {
+            background: linear-gradient(135deg, #ecfdf5 0%, #e0f2fe 100%);
+            border: 2px solid #a7f3d0;
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 4px 10px rgba(4, 120, 87, 0.08);
+        }
+
+        .contest-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .contest-tag {
+            display: inline-block;
+            background-color: var(--safe-primary);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contest-info h3 {
+            font-size: 1.4rem;
+            color: #064e3b;
+            margin-bottom: 0.5rem;
+        }
+
+        .contest-info p {
+            color: #1e293b;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .contest-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            min-width: 240px;
+        }
+
+        .btn-padlet {
+            display: block;
+            background: linear-gradient(135deg, #059669, #0284c7);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.9rem 1.4rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn-padlet:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
         }
 
         .grid {
@@ -141,6 +220,11 @@
             margin-bottom: 0.75rem;
         }
 
+        .badge-safe {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
         .badge-ai {
             background-color: #f3e8ff;
             color: #6b21a8;
@@ -150,6 +234,10 @@
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
+        }
+
+        .card-title.safe-title {
+            color: var(--safe-primary);
         }
 
         .card-title.ai-title {
@@ -192,6 +280,15 @@
             background-color: var(--primary-hover);
         }
 
+        .btn-safe {
+            background-color: var(--safe-primary);
+            color: white;
+        }
+
+        .btn-safe:hover {
+            background-color: var(--safe-hover);
+        }
+
         .btn-ai {
             background-color: var(--ai-primary);
             color: white;
@@ -209,6 +306,16 @@
 
         .btn-outline:hover {
             background-color: #eff6ff;
+        }
+
+        .btn-outline-safe {
+            background-color: transparent;
+            color: var(--safe-primary);
+            border: 1px solid var(--safe-primary);
+        }
+
+        .btn-outline-safe:hover {
+            background-color: #ecfdf5;
         }
 
         .btn-outline-ai {
@@ -367,7 +474,82 @@
 
         </div>
 
-        <!-- Ενότητα 2: Τεχνητή Νοημοσύνη (ΤΝ) -->
+        <!-- Ενότητα 2: Ασφάλεια στο Διαδίκτυο (SaferInternet4Kids) & Διαγωνισμός -->
+        <h2 class="section-heading safe-heading">🛡️ Ασφάλεια στο Διαδίκτυο (SaferInternet4Kids) & Διαγωνισμός</h2>
+
+        <!-- Πλαίσιο Διαγωνισμού & Padlet -->
+        <div class="contest-banner">
+            <div class="contest-info">
+                <span class="contest-tag">🏆 Πανελλήνιος Μαθητικός Διαγωνισμός SID 2027</span>
+                <h3>Θέμα: «Ψηφιακή Ισορροπία, Εθισμός στα Social Media & Ηθική Χρήση AI»</h3>
+                <p>
+                    Δημιουργήστε το δικό σας <strong>εκπαιδευτικό κόμικ 4 καρέ</strong> ή ψηφιακή αφίσα με σενάριο από AI και επεξεργασία στο Canva, αναδεικνύοντας την υπεύθυνη χρήση του διαδικτύου και της Τεχνητής Νοημοσύνης. Ανεβάστε την εργασία σας στον ψηφιακό πίνακα της τάξης!
+                </p>
+            </div>
+            <div class="contest-actions">
+                <!-- Αντικατάστησε το href με το ακριβές URL του δικού σου Padlet -->
+                <a href="https://padlet.com/" target="_blank" class="btn-padlet">📌 Ανέβασμα Εργασιών στο Padlet</a>
+                <button class="btn btn-outline-safe" onclick="openModal('safer_internet_contest.html', 'Οδηγίες Διαγωνισμού & Κόμικ 4 Καρέ')">📋 Οδηγίες Project</button>
+            </div>
+        </div>
+
+        <div class="grid">
+
+            <!-- Safe Internet 1 -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 1</span>
+                    <h3 class="card-title safe-title">1. Ψηφιακό Αποτύπωμα & Προσωπικά Δεδομένα</h3>
+                    <p class="card-text">Πώς προστατεύουμε την ιδιωτικότητά μας στα κοινωνικά δίκτυα, ρυθμίσεις ασφαλείας, ισχυροί κωδικοί και 2FA.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('safe_internet_privacy.html', 'Ψηφιακό Αποτύπωμα & Ιδιωτικότητα')">Προβολή</button>
+                    <a href="safe_internet_privacy.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- Safe Internet 2 -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 2</span>
+                    <h3 class="card-title safe-title">2. Εθισμός στα Social Media & Ψηφιακή Ευεξία</h3>
+                    <p class="card-text">Αλγόριθμοι προσοχής (FOMO, doomscrolling), επιπτώσεις στην ψυχική υγεία των εφήβων και στρατηγικές ψηφιακής αποτοξίνωσης.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('safe_internet_addiction.html', 'Εθισμός στα Social Media & Ψηφιακή Ευεξία')">Προβολή</button>
+                    <a href="safe_internet_addiction.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- Safe Internet 3 -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 3</span>
+                    <h3 class="card-title safe-title">3. Διαδικτυακός Εκφοβισμός & Fake News</h3>
+                    <p class="card-text">Αντιμετώπιση του Cyberbullying, αναγνώριση παραπληροφόρησης, Deepfakes και γραμμές βοήθειας (11525 / SafeLine).</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('safe_internet_bullying_fakenews.html', 'Cyberbullying & Fake News')">Προβολή</button>
+                    <a href="safe_internet_bullying_fakenews.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+            <!-- Safe Internet 4 -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 4</span>
+                    <h3 class="card-title safe-title">4. Ασφαλής Πλοήγηση & Ηλεκτρονικές Απάτες</h3>
+                    <p class="card-text">Αναγνώριση phishing, κακόβουλων συνδέσμων, ασφαλείς συναλλαγές και προστασία λογαριασμών gaming.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('safe_internet_phishing.html', 'Ασφαλής Πλοήγηση & Ηλεκτρονικές Απάτες')">Προβολή</button>
+                    <a href="safe_internet_phishing.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Ενότητα 3: Τεχνητή Νοημοσύνη (ΤΝ) -->
         <h2 class="section-heading ai-heading">🤖 Τεχνητή Νοημοσύνη (ΤΝ) & Ηθική</h2>
         <div class="grid">
 
