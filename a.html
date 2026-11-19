@@ -160,20 +160,39 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-            min-width: 240px;
+            min-width: 260px;
+        }
+
+        .btn-contest {
+            display: block;
+            background: linear-gradient(135deg, #047857, #059669);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.85rem 1.3rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn-contest:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
         }
 
         .btn-padlet {
             display: block;
-            background: linear-gradient(135deg, #059669, #0284c7);
+            background: linear-gradient(135deg, #0284c7, #1e3a8a);
             color: white;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1rem;
-            padding: 0.9rem 1.4rem;
+            font-size: 0.95rem;
+            padding: 0.85rem 1.3rem;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
             transition: transform 0.2s, opacity 0.2s;
         }
 
@@ -184,7 +203,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 1.5rem;
         }
 
@@ -231,7 +250,7 @@
         }
 
         .card-title {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
         }
@@ -483,67 +502,203 @@
                 <span class="contest-tag">🏆 Πανελλήνιος Μαθητικός Διαγωνισμός SID 2027</span>
                 <h3>Θέμα: «Ψηφιακή Ισορροπία, Εθισμός στα Social Media & Ηθική Χρήση AI»</h3>
                 <p>
-                    Δημιουργήστε το δικό σας <strong>εκπαιδευτικό κόμικ 4 καρέ</strong> ή ψηφιακή αφίσα με σενάριο από AI και επεξεργασία στο Canva, αναδεικνύοντας την υπεύθυνη χρήση του διαδικτύου και της Τεχνητής Νοημοσύνης. Ανεβάστε την εργασία σας στον ψηφιακό πίνακα της τάξης!
+                    Συμμετέχουμε στον Πανελλήνιο Μαθητικό Διαγωνισμό του Ελληνικού Κέντρου Ασφαλούς Διαδικτύου (SaferInternet4Kids). Δημιουργήστε το δικό σας <strong>εκπαιδευτικό κόμικ 4 καρέ</strong> ή ψηφιακό έργο και ανεβάστε το στον πίνακα Padlet της τάξης!
                 </p>
             </div>
             <div class="contest-actions">
+                <a href="https://saferinternet4kids.gr/sid/sid_2027/panhellenic-student-competition-for-safer-internet-day-2027/" target="_blank" class="btn-contest">🌐 Σελίδα Διαγωνισμού SID 2027</a>
                 <!-- Αντικατάστησε το href με το ακριβές URL του δικού σου Padlet -->
                 <a href="https://padlet.com/" target="_blank" class="btn-padlet">📌 Ανέβασμα Εργασιών στο Padlet</a>
-                <button class="btn btn-outline-safe" onclick="openModal('safer_internet_contest.html', 'Οδηγίες Διαγωνισμού & Κόμικ 4 Καρέ')">📋 Οδηγίες Project</button>
             </div>
         </div>
 
         <div class="grid">
 
-            <!-- Safe Internet 1 -->
+            <!-- 1. Ασφάλεια στο Διαδίκτυο (Γενική Παρουσίαση) -->
             <div class="card">
                 <div class="card-body">
-                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 1</span>
-                    <h3 class="card-title safe-title">1. Ψηφιακό Αποτύπωμα & Προσωπικά Δεδομένα</h3>
-                    <p class="card-text">Πώς προστατεύουμε την ιδιωτικότητά μας στα κοινωνικά δίκτυα, ρυθμίσεις ασφαλείας, ισχυροί κωδικοί και 2FA.</p>
+                    <span class="badge badge-safe">SaferInternet4Kids • PDF</span>
+                    <h3 class="card-title safe-title">1. Ασφάλεια στο Διαδίκτυο</h3>
+                    <p class="card-text">Βασικές αρχές ασφαλούς πλοήγησης, κίνδυνοι του διαδικτύου και πώς προστατεύουμε τον εαυτό μας online.</p>
                 </div>
                 <div class="card-actions">
-                    <button class="btn btn-safe" onclick="openModal('safe_internet_privacy.html', 'Ψηφιακό Αποτύπωμα & Ιδιωτικότητα')">Προβολή</button>
-                    <a href="safe_internet_privacy.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                    <button class="btn btn-safe" onclick="openModal('ΑΣΦΑΛΕΙΑ ΣΤΟ ΔΙΑΔΙΚΤΥΟ.pdf', 'Ασφάλεια στο Διαδίκτυο')">Προβολή PDF</button>
+                    <a href="ΑΣΦΑΛΕΙΑ ΣΤΟ ΔΙΑΔΙΚΤΥΟ.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
                 </div>
             </div>
 
-            <!-- Safe Internet 2 -->
+            <!-- 2. Πανελλήνιος Μαθητικός Διαγωνισμός 2027 -->
             <div class="card">
                 <div class="card-body">
-                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 2</span>
-                    <h3 class="card-title safe-title">2. Εθισμός στα Social Media & Ψηφιακή Ευεξία</h3>
-                    <p class="card-text">Αλγόριθμοι προσοχής (FOMO, doomscrolling), επιπτώσεις στην ψυχική υγεία των εφήβων και στρατηγικές ψηφιακής αποτοξίνωσης.</p>
+                    <span class="badge badge-safe">Διαγωνισμός SID 2027 • PDF</span>
+                    <h3 class="card-title safe-title">2. Πανελλήνιος Μαθητικός Διαγωνισμός 2027</h3>
+                    <p class="card-text">Αναλυτική παρουσίαση με τις προδιαγραφές, τη θεματολογία και τις οδηγίες συμμετοχής στον διαγωνισμό.</p>
                 </div>
                 <div class="card-actions">
-                    <button class="btn btn-safe" onclick="openModal('safe_internet_addiction.html', 'Εθισμός στα Social Media & Ψηφιακή Ευεξία')">Προβολή</button>
-                    <a href="safe_internet_addiction.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                    <button class="btn btn-safe" onclick="openModal('Πανελλήνιος Μαθητικός Διαγωνισμός 2027.pdf', 'Πανελλήνιος Μαθητικός Διαγωνισμός 2027')">Προβολή PDF</button>
+                    <a href="Πανελλήνιος Μαθητικός Διαγωνισμός 2027.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
                 </div>
             </div>
 
-            <!-- Safe Internet 3 -->
+            <!-- 3. Cyber Bullying -->
             <div class="card">
                 <div class="card-body">
-                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 3</span>
-                    <h3 class="card-title safe-title">3. Διαδικτυακός Εκφοβισμός & Fake News</h3>
-                    <p class="card-text">Αντιμετώπιση του Cyberbullying, αναγνώριση παραπληροφόρησης, Deepfakes και γραμμές βοήθειας (11525 / SafeLine).</p>
+                    <span class="badge badge-safe">SaferInternet4Kids • PDF</span>
+                    <h3 class="card-title safe-title">3. Διαδικτυακός Εκφοβισμός (Cyber Bullying)</h3>
+                    <p class="card-text">Μορφές εκφοβισμού στο διαδίκτυο, επιπτώσεις, τρόποι αντίδρασης και γραμμές βοήθειας (11525 / SafeLine).</p>
                 </div>
                 <div class="card-actions">
-                    <button class="btn btn-safe" onclick="openModal('safe_internet_bullying_fakenews.html', 'Cyberbullying & Fake News')">Προβολή</button>
-                    <a href="safe_internet_bullying_fakenews.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                    <button class="btn btn-safe" onclick="openModal('cyber bullying.pdf', 'Cyber Bullying')">Προβολή PDF</button>
+                    <a href="cyber bullying.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
                 </div>
             </div>
 
-            <!-- Safe Internet 4 -->
+            <!-- 4. Ασφάλεια στα Social Media -->
             <div class="card">
                 <div class="card-body">
-                    <span class="badge badge-safe">SaferInternet4Kids • Ενότητα 4</span>
-                    <h3 class="card-title safe-title">4. Ασφαλής Πλοήγηση & Ηλεκτρονικές Απάτες</h3>
-                    <p class="card-text">Αναγνώριση phishing, κακόβουλων συνδέσμων, ασφαλείς συναλλαγές και προστασία λογαριασμών gaming.</p>
+                    <span class="badge badge-safe">SaferInternet4Kids • PDF</span>
+                    <h3 class="card-title safe-title">4. Ασφάλεια στα Social Media</h3>
+                    <p class="card-text">Ρυθμίσεις ιδιωτικότητας, υπεύθυνες δημοσιεύσεις και προστασία προφίλ στα μέσα κοινωνικής δικτύωσης.</p>
                 </div>
                 <div class="card-actions">
-                    <button class="btn btn-safe" onclick="openModal('safe_internet_phishing.html', 'Ασφαλής Πλοήγηση & Ηλεκτρονικές Απάτες')">Προβολή</button>
-                    <a href="safe_internet_phishing.html" target="_blank" class="btn btn-outline-safe">Πλήρης Οθόνη</a>
+                    <button class="btn btn-safe" onclick="openModal('safe in social media.pdf', 'Safe in Social Media')">Προβολή PDF</button>
+                    <a href="safe in social media.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+            <!-- 5. Safe Online Gaming -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PDF</span>
+                    <h3 class="card-title safe-title">5. Ασφαλές Online Gaming</h3>
+                    <p class="card-text">Κανόνες ασφαλούς παιχνιδιού στο διαδίκτυο, προστασία λογαριασμών και αποφυγή παγίδων σε multiplayer παιχνίδια.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('safe online gaming.pdf', 'Safe Online Gaming')">Προβολή PDF</button>
+                    <a href="safe online gaming.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+            <!-- 6. Safe Online Purchases -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PDF</span>
+                    <h3 class="card-title safe-title">6. Ασφαλείς Ηλεκτρονικές Αγορές</h3>
+                    <p class="card-text">Πώς αναγνωρίζουμε αξιόπιστα ηλεκτρονικά καταστήματα (HTTPS) και αποφεύγουμε τις διαδικτυακές απάτες.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('safe online purchases.pdf', 'Safe Online Purchases')">Προβολή PDF</button>
+                    <a href="safe online purchases.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+            <!-- 7. Πνευματική Ιδιοκτησία -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PDF</span>
+                    <h3 class="card-title safe-title">7. Πνευματική Ιδιοκτησία</h3>
+                    <p class="card-text">Πνευματικά δικαιώματα στο διαδίκτυο, άδειες Creative Commons και νόμιμη χρήση ψηφιακού περιεχομένου.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('Πνευματική ιδιοκτησία.pdf', 'Πνευματική ιδιοκτησία')">Προβολή PDF</button>
+                    <a href="Πνευματική ιδιοκτησία.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+            <!-- 8. Digital Marketing -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PDF</span>
+                    <h3 class="card-title safe-title">8. Digital Marketing & Διαφήμιση</h3>
+                    <p class="card-text">Πώς λειτουργεί η στοχευμένη διαφήμιση στο διαδίκτυο και πώς επηρεάζει τις επιλογές μας.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-safe" onclick="openModal('digital-marketing-T.pdf', 'Digital Marketing')">Προβολή PDF</button>
+                    <a href="digital-marketing-T.pdf" target="_blank" class="btn btn-outline-safe">Νέα Καρτέλα</a>
+                </div>
+            </div>
+
+            <!-- 9. Εθισμός στο Διαδίκτυο -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PPTX</span>
+                    <h3 class="card-title safe-title">9. Εθισμός στο Διαδίκτυο</h3>
+                    <p class="card-text">Σημάδια υπερβολικής χρήσης οθονών, επιπτώσεις στην καθημερινότητα και τρόποι ψηφιακής ισορροπίας.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="Ethismos-1.pptx" download class="btn btn-safe">⬇️ Λήψη Παρουσίασης (.pptx)</a>
+                </div>
+            </div>
+
+            <!-- 10. Fake News -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PPTX</span>
+                    <h3 class="card-title safe-title">10. Ψευδείς Ειδήσεις (Fake News)</h3>
+                    <p class="card-text">Πώς εντοπίζουμε την παραπληροφόρηση, έλεγχος πηγών (fact-checking) και κριτική σκέψη.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="fake_news.pptx" download class="btn btn-safe">⬇️ Λήψη Παρουσίασης (.pptx)</a>
+                </div>
+            </div>
+
+            <!-- 11. Διαδικτυακή Φήμη -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PPTX</span>
+                    <h3 class="card-title safe-title">11. Διαδικτυακή Φήμη & Ψηφιακό Αποτύπωμα</h3>
+                    <p class="card-text">Τι μένει καταγεγραμμένο στο διαδίκτυο και πώς χτίζουμε μια θετική ψηφιακή ταυτότητα.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="diadiktyakh_fhmh.pptx" download class="btn btn-safe">⬇️ Λήψη Παρουσίασης (.pptx)</a>
+                </div>
+            </div>
+
+            <!-- 12. Ρητορική Μίσους (Hate Speech) -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PPTX</span>
+                    <h3 class="card-title safe-title">12. Ρητορική Μίσους στο Διαδίκτυο</h3>
+                    <p class="card-text">Αναγνώριση και αντιμετώπιση της ρητορικής μίσους (Hate Speech) και καλλιέργεια ψηφιακού σεβασμού.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="hate-speech.pptx" download class="btn btn-safe">⬇️ Λήψη Παρουσίασης (.pptx)</a>
+                </div>
+            </div>
+
+            <!-- 13. Προστασία Προσωπικών Δεδομένων -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PPTX</span>
+                    <h3 class="card-title safe-title">13. Προστασία Προσωπικών Δεδομένων</h3>
+                    <p class="card-text">Τι είναι τα προσωπικά δεδομένα, κίνδυνοι από την κοινοποίησή τους και πώς τα διαφυλάσσουμε.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="proswpika-dedomena-kindynoi-.pptx" download class="btn btn-safe">⬇️ Λήψη Παρουσίασης (.pptx)</a>
+                </div>
+            </div>
+
+            <!-- 14. Η Δύναμη της Εικόνας -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PPTX</span>
+                    <h3 class="card-title safe-title">14. Η Δύναμη της Εικόνας</h3>
+                    <p class="card-text">Διαχείριση φωτογραφιών και βίντεο στο διαδίκτυο, συναίνεση και κίνδυνοι δημοσίευσης εικόνων.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="Δύναμη-εικόνας-και-ιδιωτικότητα.pptx" download class="btn btn-safe">⬇️ Λήψη Παρουσίασης (.pptx)</a>
+                </div>
+            </div>
+
+            <!-- 15. Τεχνητή Νοημοσύνη (SaferInternet4Kids) -->
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge badge-safe">SaferInternet4Kids • PPSX</span>
+                    <h3 class="card-title safe-title">15. Τεχνητή Νοημοσύνη & Ασφάλεια</h3>
+                    <p class="card-text">Παρουσίαση του SaferInternet4Kids για τις ευκαιρίες και τις προκλήσεις της Τεχνητής Νοημοσύνης.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="Artificial Intelligence.ppsx" download class="btn btn-safe">⬇️ Λήψη Παρουσίασης (.ppsx)</a>
                 </div>
             </div>
 
