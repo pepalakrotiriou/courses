@@ -265,4 +265,728 @@
         }
 
         .copy-btn {
-            background: #33
+            background: #334155;
+            color: #f8fafc;
+            border: none;
+            padding: 0.35rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary);
+        }
+
+        pre {
+            padding: 1.25rem 1.4rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: var(--code-text);
+        }
+
+        .kw { color: #38bdf8; font-weight: 600; } /* Λέξεις-κλειδιά ΓΛΩΣΣΑΣ */
+        .type { color: #c084fc; font-weight: 600; } /* Τύποι μεταβλητών */
+        .str { color: #4ade80; } /* Συμβολοσειρές */
+        .cmt { color: #64748b; font-style: italic; } /* Σχόλια */
+        .num { color: #fbbf24; } /* Αριθμοί */
+
+        /* Κουμπί Εμφάνισης Λύσης */
+        .solution-toggle {
+            background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.35rem;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            transition: transform 0.15s, opacity 0.2s;
+        }
+
+        .solution-toggle:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        .solution-panel {
+            display: none;
+            margin-top: 1rem;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .solution-panel.open {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Επιπλέον Παραδείγματα Εξάσκησης */
+        .exercises-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed var(--border);
+        }
+
+        .exercises-section h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ex-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .ex-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.35rem;
+        }
+
+        .ex-card h4 {
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ex-card p {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+            margin-bottom: 0.9rem;
+        }
+
+        .btn-mini-sol {
+            background: white;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-mini-sol:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 1.75rem 1rem;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        footer p { margin-bottom: 0.35rem; }
+        footer a { color: #38bdf8; text-decoration: none; }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 1.85rem; }
+            .module-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-link">&larr; Επιστροφή στην Αρχική</a>
+        <h1>🧠 Β' Λυκείου — Εισαγωγή στη ΓΛΩΣΣΟΜΑΘΕΙΑ</h1>
+        <p>Σταδιακή εκμάθηση αλγορίθμων & προγραμματισμού: Από τη Δομή Ακολουθίας στους Βρόχους Επανάληψης</p>
+        <div class="teachers-header">
+            👩‍🏫 Καθηγήτριες Πληροφορικής: <strong>Αλίνα Λιονουδάκη • Παρασκευή Καντεράκη • Αριστέα Τερεζάκη</strong>
+        </div>
+    </header>
+
+    <!-- Μπάρα Γρήγορης Πλοήγησης -->
+    <nav class="toc-bar">
+        <div class="toc-inner">
+            <a href="#intro" class="toc-link">1. Δομή, Σταθερές & Μεταβλητές</a>
+            <a href="#sequence" class="toc-link">2. Δομή Ακολουθίας</a>
+            <a href="#selection" class="toc-link">3. Δομή Επιλογής (ΑΝ)</a>
+            <a href="#while-loop" class="toc-link">4. Επανάληψη (ΟΣΟ)</a>
+            <a href="#for-loop" class="toc-link">5. Επανάληψη (ΓΙΑ)</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- ========================================================= -->
+        <!-- ΕΝΟΤΗΤΑ 1: ΕΙΣΑΓΩΓΗ ΣΤΗ ΓΛΩΣΣΟΜΑΘΕΙΑ, ΔΟΜΗ & ΜΕΤΑΒΛΗΤΕΣ   -->
+        <!-- ========================================================= -->
+        <section id="intro" class="module-card">
+            <span class="step-badge">Θεωρητική Βάση</span>
+            <h2 class="module-title">1. Τι είναι η ΓΛΩΣΣΟΜΑΘΕΙΑ, Δομή Προγράμματος, Σταθερές & Μεταβλητές</h2>
+            <p>
+                Η <strong>ΓΛΩΣΣΟΜΑΘΕΙΑ</strong> είναι το εκπαιδευτικό περιβάλλον προγραμματισμού της <strong>ΓΛΩΣΣΑΣ</strong>, μέσω του οποίου γράφουμε, εκτελούμε και ελέγχουμε αλγορίθμους στα Ελληνικά. Κάθε πρόγραμμα περιλαμβάνει το <strong>Όνομα</strong>, προαιρετικά τις <strong>ΣΤΑΘΕΡΕΣ</strong> (τιμές που δεν αλλάζουν κατά την εκτέλεση), τις <strong>ΜΕΤΑΒΛΗΤΕΣ</strong> και το τμήμα των <strong>Εντολών (ΑΡΧΗ ... ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ)</strong>.
+            </p>
+
+            <div class="theory-grid">
+                <div class="var-box">
+                    <h4>🔢 ΑΚΕΡΑΙΕΣ</h4>
+                    <p>Θετικοί ή αρνητικοί ακέραιοι αριθμοί χωρίς δεκαδικά ψηφία.</p>
+                    <div class="var-examples">
+                        <strong>Παραδείγματα:</strong><br>
+                        <code>-5</code>, <code>0</code>, <code>10</code>, <code>200</code>
+                    </div>
+                </div>
+                <div class="var-box">
+                    <h4>💶 ΠΡΑΓΜΑΤΙΚΕΣ</h4>
+                    <p>Αριθμοί με δεκαδικά ψηφία (χρησιμοποιούμε τελεία <code>.</code>).</p>
+                    <div class="var-examples">
+                        <strong>Παραδείγματα:</strong><br>
+                        <code>-5.3</code>, <code>0.5</code>, <code>7.9</code>
+                    </div>
+                </div>
+                <div class="var-box">
+                    <h4>🔤 ΧΑΡΑΚΤΗΡΕΣ</h4>
+                    <p>Κείμενο, λέξεις, διευθύνσεις ή email μέσα σε εισαγωγικά.</p>
+                    <div class="var-examples">
+                        <strong>Παραδείγματα:</strong><br>
+                        <code>'ΚΑΛΗΜΕΡΑ'</code>, <code>'ΕΛ. ΒΕΝΙΖΕΛΟΥ 1-3'</code>, <code>'cat@gmail.com'</code>
+                    </div>
+                </div>
+                <div class="var-box">
+                    <h4>⚖️ ΛΟΓΙΚΕΣ</h4>
+                    <p>Παίρνουν μόνο δύο λογικές τιμές.</p>
+                    <div class="var-examples">
+                        <strong>Παραδείγματα:</strong><br>
+                        <code>ΑΛΗΘΗΣ</code>, <code>ΨΕΥΔΗΣ</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-lang">ΓΛΩΣΣΑ • Βασικός Σκελετός Προγράμματος</span>
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                </div>
+                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Όνομα_Προγράμματος
+<span class="kw">ΣΤΑΘΕΡΕΣ</span>
+  <span class="type">ΠΟΣΟΣΤΟ</span> = <span class="num">10</span>
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΑΚΕΡΑΙΕΣ</span>: χ
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: αποτέλεσμα
+  <span class="type">ΧΑΡΑΚΤΗΡΕΣ</span>: μήνυμα
+  <span class="type">ΛΟΓΙΚΕΣ</span>: έγκυρο
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε έναν ακέραιο αριθμό:'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> χ
+  αποτέλεσμα <span class="kw">&lt;-</span> χ * <span class="type">ΠΟΣΟΣΤΟ</span> / <span class="num">100</span>   <span class="cmt">! Εντολή εκχώρησης (&lt;-)</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Το αποτέλεσμα είναι: '</span>, αποτέλεσμα
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- ΕΝΟΤΗΤΑ 2: ΔΟΜΗ ΑΚΟΛΟΥΘΙΑΣ                                -->
+        <!-- ========================================================= -->
+        <section id="sequence" class="module-card">
+            <span class="step-badge teal">Βήμα 1 • Δομή Ακολουθίας</span>
+            <h2 class="module-title">2. Δομή Ακολουθίας — Υπολογισμός Καθαρού Μισθού</h2>
+            <p>
+                Στη <strong>Δομή Ακολουθίας</strong> οι εντολές εκτελούνται σειριακά, η μία μετά την άλλη από πάνω προς τα κάτω, χωρίς διακλαδώσεις ή επαναλήψεις.
+            </p>
+
+            <div class="challenge-box">
+                <h4>🧭 Καθοδήγηση & Πρόβλημα 1ου Βήματος:</h4>
+                <p>
+                    Ζητείται πρόγραμμα που διαβάζει τον <strong>μικτό μισθό</strong> ενός εργαζομένου και υπολογίζει τον <strong>καθαρό μισθό</strong>, γνωρίζοντας ότι οι <strong>φόροι είναι 20%</strong> και οι <strong>ασφαλιστικές εισφορές 15%</strong> επί του μικτού μισθού.
+                </p>
+                <ul>
+                    <li><strong>Δοκιμή 1:</strong> Εκτελέστε το πρόγραμμα στη Γλωσσομάθεια με μικτό μισθό <code>1600</code> ευρώ (αναμενόμενος καθαρός μισθός: <code>1040</code> ευρώ).</li>
+                    <li><strong>Δοκιμή 2 (Προβληματισμός!):</strong> Τι θα συμβεί αν ο χρήστης πληκτρολογήσει <strong>αρνητικό μισθό</strong>, π.χ. <code>-500</code>; Παρατηρήστε ότι το πρόγραμμα δέχεται την αρνητική τιμή και βγάζει αρνητικό μισθό! <em>Πώς μπορούμε να το αποτρέψουμε;</em></li>
+                </ul>
+            </div>
+
+            <button class="solution-toggle" onclick="toggleSolution('sol-seq', this)">👁️ Εμφάνιση Λύσης (Δομή Ακολουθίας)</button>
+            <div id="sol-seq" class="solution-panel">
+                <div class="code-wrapper">
+                    <div class="code-header">
+                        <span class="code-lang">ΓΛΩΣΣΑ • Υπολογισμός Καθαρού Μισθού (Ακολουθία)</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                    </div>
+                    <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Υπολογισμός_Μισθού_1
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: μικτός, φόρος, εισφορές, καθαρός
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε τον μικτό μισθό του εργαζομένου (€):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> μικτός
+
+  φόρος <span class="kw">&lt;-</span> μικτός * <span class="num">0.20</span>
+  εισφορές <span class="kw">&lt;-</span> μικτός * <span class="num">0.15</span>
+  καθαρός <span class="kw">&lt;-</span> μικτός - φόρος - εισφορές
+
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Κρατήσεις Φόρου (20%): '</span>, φόρος, <span class="str">' €'</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Ασφαλιστικές Εισφορές (15%): '</span>, εισφορές, <span class="str">' €'</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Καθαρός Μισθός: '</span>, καθαρός, <span class="str">' €'</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                </div>
+            </div>
+
+            <!-- 2 Παραδείγματα Εξάσκησης Ακολουθίας -->
+            <div class="exercises-section">
+                <h3>✍️ 2 Παραδείγματα Εξάσκησης (Δομή Ακολουθίας)</h3>
+                <div class="ex-grid">
+                    <div class="ex-card">
+                        <h4>Άσκηση 1.1: Εμβαδόν & Περίμετρος Ορθογωνίου</h4>
+                        <p>Να γραφεί πρόγραμμα που διαβάζει το μήκος και το πλάτος ενός οικοπέδου (σε μέτρα) και εμφανίζει την περίμετρο και το εμβαδόν του.</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-seq-1', this)">Δες τη Λύση</button>
+                        <div id="ex-seq-1" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 1.1</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Οικόπεδο
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: μήκος, πλάτος, περίμετρος, εμβαδόν
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε μήκος και πλάτος:'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> μήκος, πλάτος
+  περίμετρος <span class="kw">&lt;-</span> <span class="num">2</span> * (μήκος + πλάτος)
+  εμβαδόν <span class="kw">&lt;-</span> μήκος * πλάτος
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Περίμετρος: '</span>, περίμετρος, <span class="str">' μ.'</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Εμβαδόν: '</span>, εμβαδόν, <span class="str">' τ.μ.'</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <h4>Άσκηση 1.2: Τελική Τιμή Προϊόντος με Σταθερά ΦΠΑ = 24</h4>
+                        <p>Να γραφεί πρόγραμμα που ορίζει στις <code>ΣΤΑΘΕΡΕΣ</code> το <code>ΦΠΑ = 24</code>, διαβάζει την αρχική τιμή ενός προϊόντος, υπολογίζει τον ΦΠΑ (<code>αρχική * ΦΠΑ / 100</code>) και εμφανίζει την τελική τιμή.</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-seq-2', this)">Δες τη Λύση</button>
+                        <div id="ex-seq-2" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 1.2 (με ΣΤΑΘΕΡΕΣ)</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Υπολογισμός_ΦΠΑ
+<span class="kw">ΣΤΑΘΕΡΕΣ</span>
+  <span class="type">ΦΠΑ</span> = <span class="num">24</span>
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: αρχική, ποσό_φπα, τελική
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε αρχική τιμή (€):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> αρχική
+  ποσό_φπα <span class="kw">&lt;-</span> αρχική * <span class="type">ΦΠΑ</span> / <span class="num">100</span>
+  τελική <span class="kw">&lt;-</span> αρχική + ποσό_φπα
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'ΦΠΑ ('</span>, <span class="type">ΦΠΑ</span>, <span class="str">'%): '</span>, ποσό_φπα, <span class="str">' €'</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Τελική Τιμή: '</span>, τελική, <span class="str">' €'</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- ΕΝΟΤΗΤΑ 3: ΔΟΜΗ ΕΠΙΛΟΓΗΣ (ΑΝ)                             -->
+        <!-- ========================================================= -->
+        <section id="selection" class="module-card">
+            <span class="step-badge purple">Βήμα 2 • Δομή Επιλογής (ΑΝ ... ΤΟΤΕ ... ΑΛΛΙΩΣ)</span>
+            <h2 class="module-title">3. Δομή Επιλογής — Απόρριψη Αρνητικών & Οικογενειακό Επίδομα</h2>
+            <p>
+                Με τη <strong>Δομή Επιλογής (`ΑΝ ... ΤΟΤΕ ... ΑΛΛΙΩΣ ... ΤΕΛΟΣ_ΑΝ`)</strong> το πρόγραμμά μας παίρνει αποφάσεις ανάλογα με το αν ισχύει μια συνθήκη.
+            </p>
+
+            <div class="challenge-box">
+                <h4>🧭 Καθοδήγηση 2ου Βήματος (Δύο Νέες Απαιτήσεις):</h4>
+                <ul>
+                    <li><strong>Απαίτηση Α (Έλεγχος αρνητικής τιμής):</strong> Αν ο μικτός μισθός είναι μικρότερος από το μηδέν (<code>μικτός &lt; 0</code>), το πρόγραμμα να μην κάνει υπολογισμούς αλλά να εμφανίζει μήνυμα <em>«Λάθος! Ο μισθός δεν μπορεί να είναι αρνητικός.»</em>.</li>
+                    <li><strong>Απαίτηση Β (Επίδομα γάμου 30€):</strong> Αν ο μισθός είναι έγκυρος (<code>&gt;= 0</code>), το πρόγραμμα να ρωτάει τον εργαζόμενο αν είναι παντρεμένος (<code>'ΝΑΙ'</code> ή <code>'ΟΧΙ'</code>). Αν απαντήσει <code>'ΝΑΙ'</code>, να προστίθεται <strong>επίδομα 30 ευρώ</strong> στον καθαρό μισθό!</li>
+                </ul>
+            </div>
+
+            <button class="solution-toggle" onclick="toggleSolution('sol-sel', this)">👁️ Εμφάνιση Λύσης (Δομή Επιλογής ΑΝ)</button>
+            <div id="sol-sel" class="solution-panel">
+                <div class="code-wrapper">
+                    <div class="code-header">
+                        <span class="code-lang">ΓΛΩΣΣΑ • Έλεγχος Αρνητικής Τιμής & Επίδομα Γάμου</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                    </div>
+                    <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Υπολογισμός_Μισθού_2
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: μικτός, φόρος, εισφορές, καθαρός
+  <span class="type">ΧΑΡΑΚΤΗΡΕΣ</span>: παντρεμένος
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε τον μικτό μισθό (€):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> μικτός
+
+  <span class="kw">ΑΝ</span> μικτός &lt; <span class="num">0</span> <span class="kw">ΤΟΤΕ</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Λάθος! Ο μισθός δεν μπορεί να είναι αρνητικός.'</span>
+  <span class="kw">ΑΛΛΙΩΣ</span>
+    φόρος <span class="kw">&lt;-</span> μικτός * <span class="num">0.20</span>
+    εισφορές <span class="kw">&lt;-</span> μικτός * <span class="num">0.15</span>
+    καθαρός <span class="kw">&lt;-</span> μικτός - φόρος - εισφορές
+
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Είναι παντρεμένος/η; (ΝΑΙ / ΟΧΙ):'</span>
+    <span class="kw">ΔΙΑΒΑΣΕ</span> παντρεμένος
+
+    <span class="kw">ΑΝ</span> παντρεμένος = <span class="str">'ΝΑΙ'</span> <span class="kw">ΤΟΤΕ</span>
+      καθαρός <span class="kw">&lt;-</span> καθαρός + <span class="num">30</span>
+      <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Προστέθηκε οικογενειακό επίδομα 30 €.'</span>
+    <span class="kw">ΤΕΛΟΣ_ΑΝ</span>
+
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Τελικός Καθαρός Μισθός: '</span>, καθαρός, <span class="str">' €'</span>
+  <span class="kw">ΤΕΛΟΣ_ΑΝ</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                </div>
+            </div>
+
+            <!-- 2 Παραδείγματα Εξάσκησης Επιλογής -->
+            <div class="exercises-section">
+                <h3>✍️ 2 Παραδείγματα Εξάσκησης (Δομή Επιλογής)</h3>
+                <div class="ex-grid">
+                    <div class="ex-card">
+                        <h4>Άσκηση 2.1: Προαγωγή ή Επανεξέταση Μαθητή</h4>
+                        <p>Να γραφεί πρόγραμμα που διαβάζει τον βαθμό ενός μαθητή (από 0 έως 20). Αν ο βαθμός είναι <code>&gt;= 9.5</code> να εμφανίζει <em>«Προάγεται»</em>, αλλιώς <em>«Παραπέμπεται»</em>.</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-sel-1', this)">Δες τη Λύση</button>
+                        <div id="ex-sel-1" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 2.1</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Έλεγχος_Βαθμού
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: βαθμός
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε τον μέσο όρο του μαθητή:'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> βαθμός
+  <span class="kw">ΑΝ</span> βαθμός &gt;= <span class="num">9.5</span> <span class="kw">ΤΟΤΕ</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Ο μαθητής Προάγεται!'</span>
+  <span class="kw">ΑΛΛΙΩΣ</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Ο μαθητής Παραπέμπεται.'</span>
+  <span class="kw">ΤΕΛΟΣ_ΑΝ</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <h4>Άσκηση 2.2: Έκπτωση 15% σε Αγορές άνω των 100€</h4>
+                        <p>Ένα κατάστημα προσφέρει έκπτωση <strong>15%</strong> αν το ποσό αγοράς ξεπερνά τα <code>100€</code>. Να διαβάζεται το ποσό και να εμφανίζεται το τελικό ποσό πληρωμής.</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-sel-2', this)">Δες τη Λύση</button>
+                        <div id="ex-sel-2" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 2.2</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Έκπτωση_Καταστήματος
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: ποσό, τελικό
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε το ποσό αγοράς (€):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> ποσό
+  <span class="kw">ΑΝ</span> ποσό &gt; <span class="num">100</span> <span class="kw">ΤΟΤΕ</span>
+    τελικό <span class="kw">&lt;-</span> ποσό - (ποσό * <span class="num">0.15</span>)
+  <span class="kw">ΑΛΛΙΩΣ</span>
+    τελικό <span class="kw">&lt;-</span> ποσό
+  <span class="kw">ΤΕΛΟΣ_ΑΝ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Πληρωτέο ποσό: '</span>, τελικό, <span class="str">' €'</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- ΕΝΟΤΗΤΑ 4: ΔΟΜΗ ΕΠΑΝΑΛΗΨΗΣ ΟΣΟ                           -->
+        <!-- ========================================================= -->
+        <section id="while-loop" class="module-card">
+            <span class="step-badge amber">Βήμα 3 • Δομή Επανάληψης ΟΣΟ ... ΕΠΑΝΑΛΑΒΕ</span>
+            <h2 class="module-title">4. Δομή Επανάληψης ΟΣΟ — Έλεγχος Εγκυρότητας Εισόδου</h2>
+            <p>
+                Στο προηγούμενο βήμα, αν ο χρήστης έδινε αρνητικό μισθό, το πρόγραμμα εμφάνιζε «Λάθος» και τελείωνε. Στα πραγματικά προγράμματα θέλουμε να <strong>ξαναζητάμε</strong> την τιμή <strong>ΟΣΟ</strong> ο χρήστης δίνει λανθασμένα δεδομένα!
+            </p>
+
+            <div class="challenge-box">
+                <h4>🧭 Καθοδήγηση 3ου Βήματος (Αμυντικός Προγραμματισμός):</h4>
+                <p>
+                    Χρησιμοποιήστε τη δομή <code>ΟΣΟ μικτός &lt; 0 ΕΠΑΝΑΛΑΒΕ</code> ώστε το πρόγραμμα να μην προχωρά στους υπολογισμούς αν δεν δοθεί έγκυρος (μη αρνητικός) μισθός. Σκεφτείτε: <em>Πού πρέπει να μπει η πρώτη εντολή <code>ΔΙΑΒΑΣΕ μικτός</code> και πού η δεύτερη;</em>
+                </p>
+            </div>
+
+            <button class="solution-toggle" onclick="toggleSolution('sol-while', this)">👁️ Εμφάνιση Λύσης (Έλεγχος Εγκυρότητας με ΟΣΟ)</button>
+            <div id="sol-while" class="solution-panel">
+                <div class="code-wrapper">
+                    <div class="code-header">
+                        <span class="code-lang">ΓΛΩΣΣΑ • Έλεγχος Εγκυρότητας Τιμής με ΟΣΟ</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                    </div>
+                    <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Υπολογισμός_Μισθού_3
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: μικτός, φόρος, εισφορές, καθαρός
+  <span class="type">ΧΑΡΑΚΤΗΡΕΣ</span>: παντρεμένος
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε τον μικτό μισθό (€):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> μικτός
+
+  <span class="cmt">! Έλεγχος εγκυρότητας: όσο δίνει αρνητικό, ξαναζητάει</span>
+  <span class="kw">ΟΣΟ</span> μικτός &lt; <span class="num">0</span> <span class="kw">ΕΠΑΝΑΛΑΒΕ</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Μη έγκυρη τιμή! Δώσε μη αρνητικό μισθό (&gt;= 0):'</span>
+    <span class="kw">ΔΙΑΒΑΣΕ</span> μικτός
+  <span class="kw">ΤΕΛΟΣ_ΕΠΑΝΑΛΗΨΗΣ</span>
+
+  φόρος <span class="kw">&lt;-</span> μικτός * <span class="num">0.20</span>
+  εισφορές <span class="kw">&lt;-</span> μικτός * <span class="num">0.15</span>
+  καθαρός <span class="kw">&lt;-</span> μικτός - φόρος - εισφορές
+
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Είναι παντρεμένος/η; (ΝΑΙ / ΟΧΙ):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> παντρεμένος
+  <span class="kw">ΑΝ</span> παντρεμένος = <span class="str">'ΝΑΙ'</span> <span class="kw">ΤΟΤΕ</span>
+    καθαρός <span class="kw">&lt;-</span> καθαρός + <span class="num">30</span>
+  <span class="kw">ΤΕΛΟΣ_ΑΝ</span>
+
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Τελικός Καθαρός Μισθός: '</span>, καθαρός, <span class="str">' €'</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                </div>
+            </div>
+
+            <!-- 2 Παραδείγματα Εξάσκησης ΟΣΟ -->
+            <div class="exercises-section">
+                <h3>✍️ 2 Παραδείγματα Εξάσκησης (Δομή Επανάληψης ΟΣΟ)</h3>
+                <div class="ex-grid">
+                    <div class="ex-card">
+                        <h4>Άσκηση 3.1: Έλεγχος Εγκυρότητας Βαθμού (0–20)</h4>
+                        <p>Να γραφεί πρόγραμμα που ζητάει έναν βαθμό και τον ελέγχει με <code>ΟΣΟ</code> ώστε να είναι υποχρεωτικά μεταξύ <code>0</code> και <code>20</code> (<code>βαθμός &lt; 0 Η βαθμός &gt; 20</code>).</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-while-1', this)">Δες τη Λύση</button>
+                        <div id="ex-while-1" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 3.1</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Έγκυρος_Βαθμός
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: βαθμός
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε βαθμό (0 έως 20):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> βαθμός
+  <span class="kw">ΟΣΟ</span> βαθμός &lt; <span class="num">0</span> <span class="kw">Η</span> βαθμός &gt; <span class="num">20</span> <span class="kw">ΕΠΑΝΑΛΑΒΕ</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Λάθος! Δώσε τιμή από 0 έως 20:'</span>
+    <span class="kw">ΔΙΑΒΑΣΕ</span> βαθμός
+  <span class="kw">ΤΕΛΟΣ_ΕΠΑΝΑΛΗΨΗΣ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Ο έγκυρος βαθμός είναι: '</span>, βαθμός
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <h4>Άσκηση 3.2: Άθροισμα Αριθμών μέχρι το 0 (Τιμή Φρουρός)</h4>
+                        <p>Να διαβάζονται θετικοί αριθμοί και να προστίθενται σε ένα άθροισμα, <code>ΟΣΟ</code> ο αριθμός που δίνεται είναι διάφορος του <code>0</code> (<code>χ &lt;&gt; 0</code>).</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-while-2', this)">Δες τη Λύση</button>
+                        <div id="ex-while-2" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 3.2</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Άθροισμα_Μέχρι_Μηδέν
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΑΚΕΡΑΙΕΣ</span>: χ, άθροισμα
+<span class="kw">ΑΡΧΗ</span>
+  άθροισμα <span class="kw">&lt;-</span> <span class="num">0</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε αριθμό (0 για τέλος):'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> χ
+  <span class="kw">ΟΣΟ</span> χ &lt;&gt; <span class="num">0</span> <span class="kw">ΕΠΑΝΑΛΑΒΕ</span>
+    άθροισμα <span class="kw">&lt;-</span> άθροισμα + χ
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε επόμενο αριθμό (0 για τέλος):'</span>
+    <span class="kw">ΔΙΑΒΑΣΕ</span> χ
+  <span class="kw">ΤΕΛΟΣ_ΕΠΑΝΑΛΗΨΗΣ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Συνολικό Άθροισμα: '</span>, άθροισμα
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- ΕΝΟΤΗΤΑ 5: ΔΟΜΗ ΕΠΑΝΑΛΗΨΗΣ ΓΙΑ (100 ΕΡΓΑΖΟΜΕΝΟΙ)          -->
+        <!-- ========================================================= -->
+        <section id="for-loop" class="module-card">
+            <span class="step-badge">Βήμα 4 • Δομή Επανάληψης ΓΙΑ ... ΑΠΟ ... ΜΕΧΡΙ</span>
+            <h2 class="module-title">5. Δομή Επανάληψης ΓΙΑ — Μισθοδοσία 100 Εργαζομένων</h2>
+            <p>
+                Όταν γνωρίζουμε <strong>ακριβώς πόσες φορές</strong> θέλουμε να εκτελεστεί μια διαδικασία (π.χ. για <strong>100 εργαζομένους</strong> μιας εταιρείας), χρησιμοποιούμε τη δομή <code>ΓΙΑ i ΑΠΟ 1 ΜΕΧΡΙ 100</code>.
+            </p>
+
+            <div class="challenge-box">
+                <h4>🧭 Καθοδήγηση 4ου Βήματος (Ολοκληρωμένο Πρόγραμμα):</h4>
+                <ul>
+                    <li>Περικλείστε τον κώδικα του ενός εργαζομένου μέσα σε έναν βρόχο <code>ΓΙΑ i ΑΠΟ 1 ΜΕΧΡΙ 100</code>.</li>
+                    <li><strong>Επιπλέον πρόκληση:</strong> Χρησιμοποιήστε μια μεταβλητή-αθροιστή <code>συνολική_δαπάνη</code> (αρχικοποιημένη σε <code>0</code> πριν την επανάληψη) ώστε στο τέλος να εμφανίζεται και το συνολικό ποσό καθαρών μισθών που θα πληρώσει η επιχείρηση και στους 100 εργαζομένους!</li>
+                </ul>
+            </div>
+
+            <button class="solution-toggle" onclick="toggleSolution('sol-for', this)">👁️ Εμφάνιση Τελικής Λύσης (100 Εργαζόμενοι)</button>
+            <div id="sol-for" class="solution-panel">
+                <div class="code-wrapper">
+                    <div class="code-header">
+                        <span class="code-lang">ΓΛΩΣΣΑ • Ολοκληρωμένη Μισθοδοσία 100 Εργαζομένων</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                    </div>
+                    <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Μισθοδοσία_100_Εργαζομένων
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΑΚΕΡΑΙΕΣ</span>: i
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: μικτός, φόρος, εισφορές, καθαρός, συνολική_δαπάνη
+  <span class="type">ΧΑΡΑΚΤΗΡΕΣ</span>: παντρεμένος
+<span class="kw">ΑΡΧΗ</span>
+  συνολική_δαπάνη <span class="kw">&lt;-</span> <span class="num">0</span>
+
+  <span class="kw">ΓΙΑ</span> i <span class="kw">ΑΠΟ</span> <span class="num">1</span> <span class="kw">ΜΕΧΡΙ</span> <span class="num">100</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'--- Εργαζόμενος Νο '</span>, i, <span class="str">' ---'</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε μικτό μισθό (€):'</span>
+    <span class="kw">ΔΙΑΒΑΣΕ</span> μικτός
+
+    <span class="kw">ΟΣΟ</span> μικτός &lt; <span class="num">0</span> <span class="kw">ΕΠΑΝΑΛΑΒΕ</span>
+      <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Λάθος! Δώσε μη αρνητικό μισθό:'</span>
+      <span class="kw">ΔΙΑΒΑΣΕ</span> μικτός
+    <span class="kw">ΤΕΛΟΣ_ΕΠΑΝΑΛΗΨΗΣ</span>
+
+    φόρος <span class="kw">&lt;-</span> μικτός * <span class="num">0.20</span>
+    εισφορές <span class="kw">&lt;-</span> μικτός * <span class="num">0.15</span>
+    καθαρός <span class="kw">&lt;-</span> μικτός - φόρος - εισφορές
+
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Είναι παντρεμένος/η; (ΝΑΙ / ΟΧΙ):'</span>
+    <span class="kw">ΔΙΑΒΑΣΕ</span> παντρεμένος
+    <span class="kw">ΑΝ</span> παντρεμένος = <span class="str">'ΝΑΙ'</span> <span class="kw">ΤΟΤΕ</span>
+      καθαρός <span class="kw">&lt;-</span> καθαρός + <span class="num">30</span>
+    <span class="kw">ΤΕΛΟΣ_ΑΝ</span>
+
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Καθαρός μισθός εργαζομένου '</span>, i, <span class="str">': '</span>, καθαρός, <span class="str">' €'</span>
+    συνολική_δαπάνη <span class="kw">&lt;-</span> συνολική_δαπάνη + καθαρός
+  <span class="kw">ΤΕΛΟΣ_ΕΠΑΝΑΛΗΨΗΣ</span>
+
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'====================================='</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Συνολική Δαπάνη Καθαρών Μισθών: '</span>, συνολική_δαπάνη, <span class="str">' €'</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                </div>
+            </div>
+
+            <!-- 2 Παραδείγματα Εξάσκησης ΓΙΑ -->
+            <div class="exercises-section">
+                <h3>✍️ 2 Παραδείγματα Εξάσκησης (Δομή Επανάληψης ΓΙΑ)</h3>
+                <div class="ex-grid">
+                    <div class="ex-card">
+                        <h4>Άσκηση 4.1: Μέσος Όρος Βαθμολογίας 25 Μαθητών</h4>
+                        <p>Να διαβαστούν οι βαθμοί <code>25</code> μαθητών ενός τμήματος, να υπολογιστεί το άθροισμά τους και στο τέλος να εμφανιστεί ο μέσος όρος της τάξης.</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-for-1', this)">Δες τη Λύση</button>
+                        <div id="ex-for-1" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 4.1</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Μέσος_Όρος_Τάξης
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΑΚΕΡΑΙΕΣ</span>: i
+  <span class="type">ΠΡΑΓΜΑΤΙΚΕΣ</span>: βαθμός, άθροισμα, μο
+<span class="kw">ΑΡΧΗ</span>
+  άθροισμα <span class="kw">&lt;-</span> <span class="num">0</span>
+  <span class="kw">ΓΙΑ</span> i <span class="kw">ΑΠΟ</span> <span class="num">1</span> <span class="kw">ΜΕΧΡΙ</span> <span class="num">25</span>
+    <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Δώσε βαθμό μαθητή '</span>, i, <span class="str">':'</span>
+    <span class="kw">ΔΙΑΒΑΣΕ</span> βαθμός
+    άθροισμα <span class="kw">&lt;-</span> άθροισμα + βαθμός
+  <span class="kw">ΤΕΛΟΣ_ΕΠΑΝΑΛΗΨΗΣ</span>
+  μο <span class="kw">&lt;-</span> άθροισμα / <span class="num">25</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Μέσος Όρος Τμήματος: '</span>, μο
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <h4>Άσκηση 4.2: Προπαίδεια ενός Αριθμού (1 έως 10)</h4>
+                        <p>Να γραφεί πρόγραμμα που διαβάζει έναν ακέραιο αριθμό <code>Ν</code> και εμφανίζει την προπαίδειά του από το <code>1</code> έως το <code>10</code>.</p>
+                        <button class="btn-mini-sol" onclick="toggleSolution('ex-for-2', this)">Δες τη Λύση</button>
+                        <div id="ex-for-2" class="solution-panel">
+                            <div class="code-wrapper">
+                                <div class="code-header">
+                                    <span class="code-lang">ΓΛΩΣΣΑ • Άσκηση 4.2</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Αντιγραφή</button>
+                                </div>
+                                <pre><span class="kw">ΠΡΟΓΡΑΜΜΑ</span> Προπαίδεια
+<span class="kw">ΜΕΤΑΒΛΗΤΕΣ</span>
+  <span class="type">ΑΚΕΡΑΙΕΣ</span>: ν, i, γινόμενο
+<span class="kw">ΑΡΧΗ</span>
+  <span class="kw">ΓΡΑΨΕ</span> <span class="str">'Ποιανού αριθμού θέλεις την προπαίδεια;'</span>
+  <span class="kw">ΔΙΑΒΑΣΕ</span> ν
+  <span class="kw">ΓΙΑ</span> i <span class="kw">ΑΠΟ</span> <span class="num">1</span> <span class="kw">ΜΕΧΡΙ</span> <span class="num">10</span>
+    γινόμενο <span class="kw">&lt;-</span> ν * i
+    <span class="kw">ΓΡΑΨΕ</span> ν, <span class="str">' x '</span>, i, <span class="str">' = '</span>, γινόμενο
+  <span class="kw">ΤΕΛΟΣ_ΕΠΑΝΑΛΗΨΗΣ</span>
+<span class="kw">ΤΕΛΟΣ_ΠΡΟΓΡΑΜΜΑΤΟΣ</span></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ΠΕΠΑΛ Ακρωτηρίου — Τμήμα Πληροφορικής</p>
+        <p>Καθηγήτριες Πληροφορικής: Αλίνα Λιονουδάκη, Παρασκευή Καντεράκη, Αριστέα Τερεζάκη</p>
+        <p><small>Φιλοξενείται στο <a href="https://github.com/pepalakrotiriou2" target="_blank">GitHub Pages</a></small></p>
+    </footer>
+
+    <script>
+        function toggleSolution(id, btn) {
+            const panel = document.getElementById(id);
+            const isOpen = panel.classList.toggle('open');
+            if (btn.classList.contains('solution-toggle')) {
+                btn.innerHTML = isOpen ? '🙈 Απόκρυψη Λύσης' : btn.getAttribute('data-label') || '👁️ Εμφάνιση Λύσης';
+                if (!btn.getAttribute('data-label')) {
+                    btn.setAttribute('data-label', btn.innerHTML.replace('🙈 Απόκρυψη Λύσης', '👁️ Εμφάνιση Λύσης'));
+                }
+            } else {
+                btn.innerText = isOpen ? 'Απόκρυψη Λύσης' : 'Δες τη Λύση';
+            }
+        }
+
+        function copyCode(btn) {
+            const pre = btn.closest('.code-wrapper').querySelector('pre');
+            const text = pre.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const orig = btn.innerText;
+                btn.innerText = '✅ Αντιγράφηκε!';
+                setTimeout(() => btn.innerText = orig, 1800);
+            });
+        }
+    </script>
+</body>
+</html>
